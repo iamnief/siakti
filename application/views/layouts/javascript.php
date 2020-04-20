@@ -5,6 +5,8 @@
 <script src="<?php echo base_url();?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url();?>/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?php echo base_url();?>/assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url();?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>/assets/dist/js/adminlte.js"></script>
 
@@ -22,3 +24,8 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="<?php echo base_url();?>/assets/dist/js/pages/dashboard2.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+  });
+</script>
