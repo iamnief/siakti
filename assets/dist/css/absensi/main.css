@@ -1,0 +1,97 @@
+body {
+  background-color: white;
+  color: #000;
+}
+
+.btn-green {
+  background-color: #01abaa;
+}
+
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active {
+  background-color: #007e7e;
+}
+
+.btn-yellow {
+  background-color: #fedc3d;
+}
+
+.btn-yellow:hover,
+.btn-yellow:focus,
+.btn-yellow:active {
+  background-color: #d4b732;
+}
+
+.kelas-hari-ini h3 {
+  color: #01abaa;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.kelas-hari-ini h5 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.kelas-hari-ini .mata-kuliah {
+  margin: 0px 10px 5px 10px;
+  padding: 5px 10px 0px 10px;
+}
+
+.kelas-hari-ini .mata-kuliah p {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.kelas-hari-ini .mata-kuliah .matkul .nama-matkul {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.kelas-hari-ini .mata-kuliah .status {
+  text-align: left;
+  margin-right: 0px;
+}
+
+.kelas-hari-ini .btn-danger {
+  margin-top: 5px;
+}
+
+.kelas-tertunda h3 {
+  color: #01abaa;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.kelas-tertunda h5 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.kelas-tertunda .mata-kuliah {
+  margin: 0px 10px 5px 10px;
+  padding: 5px 10px 0px 10px;
+}
+
+.kelas-tertunda .mata-kuliah p {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.kelas-tertunda .mata-kuliah .matkul .nama-matkul {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.kelas-tertunda .mata-kuliah .status {
+  text-align: left;
+  margin-right: 0px;
+  padding: 30px 0;
+}
+
+footer {
+  background-color: #424242;
+  color: white;
+}
+/*# sourceMappingURL=main.css.map */

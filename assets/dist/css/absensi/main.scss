@@ -1,0 +1,115 @@
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+  background-color: white;
+  // font-family: 'Open Sans', sans-serif;
+  color: #000;
+}
+
+.btn-green {
+  background-color: #01abaa;
+}
+
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active {
+  background-color: #007e7e;
+}
+
+.btn-yellow {
+  background-color: #fedc3d;
+}
+
+.btn-yellow:hover,
+.btn-yellow:focus,
+.btn-yellow:active {
+  background-color: #d4b732;
+}
+
+// kelas hari ini
+.kelas-hari-ini {
+
+  h3 {
+    // font-family: 'Playfair Display', serif;
+    color: #01abaa;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  h5 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .mata-kuliah {
+    margin: 0px 10px 5px 10px;
+    padding: 5px 10px 0px 10px;
+
+    p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .matkul {
+      .nama-matkul {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
+    .status {
+      text-align: left;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-danger {
+    margin-top: 5px;
+  }
+}
+
+// kelas tertunda
+.kelas-tertunda {
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+
+  h3 {
+    // font-family: 'Playfair Display', serif;
+    color: #01abaa;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  h5 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .mata-kuliah {
+    margin: 0px 10px 5px 10px;
+    padding: 5px 10px 0px 10px;
+
+    p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .matkul {
+      .nama-matkul {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
+    .status {
+      text-align: left;
+      margin-right: 0px;
+      padding: 30px 0;
+    }
+  }
+}
+
+footer {
+  background-color: #424242;
+  color: white;
+}
