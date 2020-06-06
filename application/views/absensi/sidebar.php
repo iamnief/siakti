@@ -1,10 +1,10 @@
 <?php
 // Fungsi untuk membuat item menu di kiri
-function sidebar_menu_item($title, $icon, $menuName, $menu, $page_name)
+function sidebar_menu_item($title, $icon, $menuName, $menuActive, $page_name)
 {
 ?>
     <li class="nav-item">
-        <a href="<?php echo site_url($page_name); ?>" class="nav-link <?php if ($menu == $menuName) {
+        <a href="<?php echo site_url($page_name); ?>" class="nav-link <?php if ($menuActive == $menuName) {
                                                                             echo "active";
                                                                         } ?>">
             <i class="<?php echo $icon ?>"></i>

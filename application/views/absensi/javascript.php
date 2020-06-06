@@ -46,23 +46,25 @@
 <script src="<?php echo base_url(); ?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
+
 <!-- PAGE SCRIPTS -->
-<script>
+<script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script>
+<script type="text/javascript">
   $(function() {
     $("#example1").DataTable();
   });
 </script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
+<script type="text/javascript">
+  $.widget.bridge('uibutton', $.ui.button);
 </script>
 <script type="text/javascript">
   // The Calender
   $('#calendar').datetimepicker({
     format: 'L',
     inline: true
-  })
+  });
 </script>
 
 <script type="text/javascript">
