@@ -43,7 +43,7 @@ function sidebar_menu_item($title, $icon, $menuName, $menuActive, $page_name)
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_mahasiswa/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $main['menuActive'], "absensi_mahasiswa/jadwal");
                 sidebar_menu_item("Absen", "nav-icon fas fa-edit", 'absen', $main['menuActive'], "absensi_mahasiswa/absen");
-                sidebar_menu_item("Kompen", "nav-icon fas fa-file", 'kompen', $main['menuActive'], "absensi_mahasiswa/kompen");
+                sidebar_menu_item("Ketidakhadiran", "nav-icon fas fa-file", 'kompen', $main['menuActive'], "absensi_mahasiswa/kompen");
             } else if ($main['userType'] == 'dosen') {
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_dosen/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $main['menuActive'], "absensi_dosen/jadwal");
