@@ -3,12 +3,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Kompensasi</h1>
+        <h1 class="m-0 text-dark">Ketidakhadiran</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Absensi</a></li>
-          <li class="breadcrumb-item active">Kompensasi</li>
+          <li class="breadcrumb-item active">Ketidakhadiran</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -31,28 +31,28 @@
           <div class="card-body table-responsive p-0">
             <table class="table table-hover text-nowrap">
               <thead>
-                <tr>
-                  <th>Waktu Kehadiran yang tidak diizinkan</th>
-                  <th>Sanksi</th>
+                <tr class="row" >
+                  <th class="col-6" >Waktu Kehadiran yang tidak diizinkan</th>
+                  <th class="col-6" >Sanksi</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>5 menit s.d. 100 menit</td>
-                  <td>Kompensasi 5 kalinya</td>
+                <tr class="row" >
+                  <td class="col-6 inline" >5 menit s.d. 100 menit</td>
+                  <td class="col-6 inline" >Kompensasi 5 kalinya</td>
                 </tr>
-                <tr>
-                  <td>Lebih dari 100 menit(dianggap tidak hadir selama 1 hari yang diperhitungkan sesuai dengan
+                <tr class="row" >
+                  <td class="col-6 inline" >Lebih dari 100 menit(dianggap tidak hadir selama 1 hari yang <br> diperhitungkan sesuai dengan
                     jumlah kuliah pada hari tersebut)</td>
-                  <td>Kompensasi 2 kalinya</td>
+                  <td class="col-6 inline" >Kompensasi 2 kalinya</td>
                 </tr>
-                <tr>
-                  <td>1 hari</td>
-                  <td>Kompensasi 2 kalinya</td>
+                <tr class="row" >
+                  <td class="col-6 inline" >1 hari</td>
+                  <td class="col-6 inline" >Kompensasi 2 kalinya</td>
                 </tr>
-                <tr>
-                  <td>Tidak absen di akhir perkuliahan</td>
-                  <td>Dianggap tidak hadir 1 jam terakhir perkuliahan</td>
+                <tr class="row" >
+                  <td class="col-6 inline" >Tidak absen di akhir perkuliahan</td>
+                  <td class="col-6 inline" >Dianggap tidak hadir 1 jam terakhir perkuliahan</td>
                 </tr>
               </tbody>
             </table>
