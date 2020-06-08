@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Absensi_Dosen extends CI_Controller {
 
+    var $API ="";
+
+    function __construct() {
+        parent::__construct();
+        $this->API="http://localhost/siakti-api/index.php";
+    }
+
 	public function index()
 	{
 		$data['userType'] = 'dosen';
