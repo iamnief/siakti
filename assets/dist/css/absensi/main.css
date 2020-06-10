@@ -23,6 +23,10 @@ body {
   background-color: #d4b732;
 }
 
+.kelas-hari-ini {
+  margin-bottom: 20px;
+}
+
 .kelas-hari-ini h3 {
   color: #01abaa;
   text-align: center;
