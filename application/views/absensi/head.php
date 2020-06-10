@@ -11,7 +11,6 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/dist/css/adminlte.min.css">
 <!-- css buatan sendiri -->
-<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/dist/css/main.css"> -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/dist/css/absensi/main.css">
 <!-- IonIcons -->
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
