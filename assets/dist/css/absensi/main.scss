@@ -1,8 +1,5 @@
-// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 body {
   background-color: white;
-  // font-family: 'Open Sans', sans-serif;
   color: #000;
 }
 
@@ -28,9 +25,9 @@ body {
 
 // kelas hari ini
 .kelas-hari-ini {
+  margin-bottom: 20px;
 
   h3 {
-    // font-family: 'Playfair Display', serif;
     color: #01abaa;
     text-align: center;
     margin-top: 20px;
@@ -70,11 +67,8 @@ body {
 
 // kelas tertunda
 .kelas-tertunda {
-  // padding-top: 20px;
-  // padding-bottom: 20px;
 
   h3 {
-    // font-family: 'Playfair Display', serif;
     color: #01abaa;
     text-align: center;
     margin-top: 20px;

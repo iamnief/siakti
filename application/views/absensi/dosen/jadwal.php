@@ -42,21 +42,30 @@
             </div>
             <!-- /.col-md-8 -->
             <div class="col-lg-8">
-
                 <div class="kelas-hari-ini">
-                    <div class="mata-kuliah card">
-                        <div class="row">
-                            <div class="matkul col-9">
-                                <p class="nama-matkul">Data Mining</p>
-                                <p>07.30 - 08.30</p>
-                                <p>TI - 6A</p>
-                            </div>
-                            <div class="status col-3">
-                                <p>Kelas sudah berakhir</p>
-                                <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $response = json_decode($this->curl->simple_get($this->API . '/jadwalkuliah/dosen/75/2/4/2020-06-11'));
+                    if (isset($response->responseCode) && $response->responseCode == '200') {
+                        $data_jadwal = $response->responseData;
+                        foreach ($data_jadwal as $key => $value) {
+                            $value = json_decode(json_encode($value));
+                            echo '<div class="mata-kuliah card">';
+                            echo '<div class="row">';
+                            echo '<div class="matkul col-9">';
+                            echo '<p class="nama-matkul">' . $value->namamk . '</p>';
+                            echo '<p>' . $value->jam_mulai . " - " . $value->jam_selesai . '</p>';
+                            echo '<p>' . $value->namaklas . '</p>';
+                            echo '<p>' . $value->ruangan_namaruang . '</p>';
+                            echo '</div>';
+                            echo '<div class="status col-3">';
+                            echo '<p>Kelas sudah berakhir</p>';
+                            echo '<a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    }
+                    ?>
                     <div class="mata-kuliah card">
                         <div class="row">
                             <div class="matkul col-9">
@@ -80,45 +89,6 @@
                             <div class="status col-3">
                                 <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>
                                 <a href="detail_kelas" class="btn btn-danger btn-sm" role="button">Batalkan Kelas</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mata-kuliah card">
-                        <div class="row">
-                            <div class="matkul col-9">
-                                <p class="nama-matkul">Data Mining</p>
-                                <p>07.30 - 08.30</p>
-                                <p>TI - 6A</p>
-                            </div>
-                            <div class="status col-3">
-                                <p>Kelas sudah berakhir</p>
-                                <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mata-kuliah card">
-                        <div class="row">
-                            <div class="matkul col-9">
-                                <p class="nama-matkul">Data Mining</p>
-                                <p>07.30 - 08.30</p>
-                                <p>TI - 6A</p>
-                            </div>
-                            <div class="status col-3">
-                                <p>Kelas sudah berakhir</p>
-                                <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mata-kuliah card">
-                        <div class="row">
-                            <div class="matkul col-9">
-                                <p class="nama-matkul">Data Mining</p>
-                                <p>07.30 - 08.30</p>
-                                <p>TI - 6A</p>
-                            </div>
-                            <div class="status col-3">
-                                <p>Kelas sudah berakhir</p>
-                                <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>
                             </div>
                         </div>
                     </div>
