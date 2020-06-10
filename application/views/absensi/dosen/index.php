@@ -1,9 +1,19 @@
+<?php
+date_default_timezone_set("Asia/Jakarta");
+$hari = date('N');
+$tgl = date('d-m-y');
+$tanggal = date('l, d F Y');
+$url = 'jadwalkuliah/dosen/75/2/' . $hari . '/' . $tgl;
+$response  = $this->customguzzle->getBasicToken($url, 'application/json');
+?>
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-6">
         <h1 class="m-0 text-dark">Dashboard</h1>
+        <p><?php echo $tanggal ?></p>
       </div><!-- /.col -->
       <div class="col-6">
         <ol class="breadcrumb float-right">
@@ -25,11 +35,9 @@
         <div class="card">
           <div class="kelas-hari-ini">
             <h3>Kelas Hari Ini</h3>
-            <h5>2 April 2020</h5>
             <?php
-            $response = json_decode($this->curl->simple_get($this->API . '/jadwalkuliah/dosen/75/2/4/2020-06-11'));
-            if (isset($response->responseCode) && $response->responseCode == '200') {
-              $data_jadwal = $response->responseData;
+            if (isset($response['error']) && !$response['error']) {
+              $data_jadwal = json_decode($response['data']);
               foreach ($data_jadwal as $key => $value) {
                 $value = json_decode(json_encode($value));
                 echo '<div class="mata-kuliah card">';
@@ -42,7 +50,7 @@
                 echo '</div>';
                 echo '<div class="status col-4">';
                 echo '<p>Kelas sudah berakhir</p>';
-                echo '<a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
+                echo '<a href=' . site_url('absensi_dosen/detail_kelas') . ' class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -58,7 +66,7 @@
                 </div>
                 <div class="status col-4">
                   <p>Kelas sedang berlangsung</p>
-                  <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Lihat Kelas</a>
+                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-yellow btn-sm" role="button">Lihat Kelas</a>
                 </div>
               </div>
             </div>
@@ -70,8 +78,8 @@
                   <p>TI - 6A</p>
                 </div>
                 <div class="status col-4">
-                  <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>
-                  <a href="detail_kelas" class="btn btn-danger btn-sm" role="button">Batalkan Kelas</a>
+                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>
+                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-danger btn-sm" role="button">Batalkan Kelas</a>
                 </div>
               </div>
             </div>
@@ -94,7 +102,7 @@
                   <p>TI - 6A</p>
                 </div>
                 <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
+                  <a href=<?php echo site_url("absensi_dosen/kelas_pengganti"); ?> class="btn btn-yellow btn-sm" role="button">Buat Kelas
                     Pengganti</a>
                 </div>
               </div>

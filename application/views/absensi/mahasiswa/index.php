@@ -1,3 +1,12 @@
+<?php
+date_default_timezone_set("Asia/Jakarta");
+$hari = date('N');
+$tgl = date('d-m-y');
+$tanggal = date('l, d F Y');
+$url = 'jadwalkuliah/mahasiswa/75/2/' . $hari . '/' . $tgl;
+$response  = $this->customguzzle->getBasicToken($url, 'application/json');
+?>
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -26,7 +35,7 @@
             <span class="float-left">Kelas Hari Ini</span>
             <div class="card-tools">
               <div class="clearfix">
-                <span class="float-right">Jumat, 2 April 2020</span>
+                <span class="float-right"><?php echo $tanggal ?></span>
               </div>
             </div>
           </div>
@@ -43,9 +52,8 @@
               </thead>
               <tbody>
                 <?php
-                $response = json_decode($this->curl->simple_get($this->API.'/jadwalkuliah/mahasiswa/75/2/4/2020-06-11'));
-                if (isset($response->responseCode) && $response->responseCode == '200') {
-                  $data_jadwal = $response->responseData;
+                if (isset($response['error']) && !$response['error']) {
+                  $data_jadwal = json_decode($response['data']);
                   foreach ($data_jadwal as $key => $value) {
                     $value = json_decode(json_encode($value));
                     echo '<tr>';
