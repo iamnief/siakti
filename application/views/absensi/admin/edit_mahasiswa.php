@@ -65,7 +65,7 @@
                   <td>Lynx</td>
                   <td>Text only</td>
                   <td>-</td>
-                  <td><a class="btn btn-primary btn-sm" href="detailList_Mahasiswa.html">
+                  <td><a class="btn btn-primary btn-sm" href="<?php echo site_url('absensi_admin/detail_mahasiswa'); ?>">
                       <i class="fas fa-folder">
                       </i>
                       View

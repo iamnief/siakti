@@ -54,8 +54,8 @@ function sidebar_menu_item($title, $icon, $menuName, $menuActive, $page_name)
                 sidebar_menu_item("Permohonan Verifikasi", "nav-icon far fa-copy", 'permohonan', $main['menuActive'], "absensi_kps/verifikasi_perkuliahan");
             } else if ($main['userType'] == 'admin') {
                 sidebar_menu_item("Dashboard", "fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_admin/");
-                sidebar_menu_item("Absen Dosen", "fas fa-edit", 'edit_dosen', $main['menuActive'], "absensi_admin/edit_dosen");
-                sidebar_menu_item("Absen Mahasiswa", "fas fa-edit", 'edit_mahasiswa', $main['menuActive'], "absensi_admin/edit_mahasiswa");
+                sidebar_menu_item("Edit Dosen", "fas fa-edit", 'edit_dosen', $main['menuActive'], "absensi_admin/edit_dosen");
+                sidebar_menu_item("Edit Mahasiswa", "fas fa-edit", 'edit_mahasiswa', $main['menuActive'], "absensi_admin/edit_mahasiswa");
             }
             ?>
         </ul>

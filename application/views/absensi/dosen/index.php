@@ -26,6 +26,29 @@
           <div class="kelas-hari-ini">
             <h3>Kelas Hari Ini</h3>
             <h5>2 April 2020</h5>
+            <?php
+            $response = json_decode($this->curl->simple_get($this->API . '/jadwalkuliah/dosen/75/2/4/2020-06-11'));
+            if (isset($response->responseCode) && $response->responseCode == '200') {
+              $data_jadwal = $response->responseData;
+              foreach ($data_jadwal as $key => $value) {
+                $value = json_decode(json_encode($value));
+                echo '<div class="mata-kuliah card">';
+                echo '<div class="row">';
+                echo '<div class="matkul col-8">';
+                echo '<p class="nama-matkul">' . $value->namamk . '</p>';
+                echo '<p>' . $value->jam_mulai . " - " . $value->jam_selesai . '</p>';
+                echo '<p>' . $value->namaklas . '</p>';
+                echo '<p>' . $value->ruangan_namaruang . '</p>';
+                echo '</div>';
+                echo '<div class="status col-4">';
+                echo '<p>Kelas sudah berakhir</p>';
+                echo '<a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
+            }
+            ?>
             <div class="mata-kuliah card">
               <div class="row">
                 <div class="matkul col-8">
