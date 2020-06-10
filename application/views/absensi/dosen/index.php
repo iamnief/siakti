@@ -57,19 +57,6 @@
                   <p>TI - 6A</p>
                 </div>
                 <div class="status col-4">
-                  <p>Kelas sudah berakhir</p>
-                  <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
                   <p>Kelas sedang berlangsung</p>
                   <a href="detail_kelas" class="btn btn-yellow btn-sm" role="button">Lihat Kelas</a>
                 </div>
@@ -88,45 +75,6 @@
                 </div>
               </div>
             </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <p>Kelas sudah berakhir</p>
-                  <button class="btn btn-yellow btn-sm">Detail Kehadiran</button>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <p>Kelas sudah berakhir</p>
-                  <button class="btn btn-yellow btn-sm">Detail Kehadiran</button>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <p>Kelas sudah berakhir</p>
-                  <button class="btn btn-yellow btn-sm">Detail Kehadiran</button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <!-- /.card -->
@@ -137,76 +85,6 @@
         <div class="card">
           <div class="kelas-tertunda">
             <h3>Kelas Dibatalkan</h3>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href="kelas_pengganti" class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
             <div class="mata-kuliah card">
               <div class="row">
                 <div class="matkul col-8">
