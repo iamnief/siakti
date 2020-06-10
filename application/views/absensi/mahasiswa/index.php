@@ -26,7 +26,11 @@
             <span class="float-left">Kelas Hari Ini</span>
             <div class="card-tools">
               <div class="clearfix">
-                <span class="float-right">Jumat, 2 April 2020</span>
+                <span class="float-right">
+                  <?php
+
+                  print date("j F Y");
+                ?></span>
               </div>
             </div>
           </div>
