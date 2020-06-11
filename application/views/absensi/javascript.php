@@ -48,7 +48,7 @@
 
 
 <!-- PAGE SCRIPTS -->
-<script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script> -->
 <script type="text/javascript">
   $(function() {
     $("#example1").DataTable();
@@ -67,7 +67,9 @@
   });
 </script>
 
-<script type="text/javascript">
+
+</script>
+<!-- <script type="text/javascript">
   var qrcode = new QRCode(document.getElementById("qrCode"), {
     width: 350,
     height: 350
@@ -79,4 +81,4 @@
   }
 
   makeCode();
-</script>
+</script> -->
