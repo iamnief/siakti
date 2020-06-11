@@ -28,14 +28,14 @@ class Login extends CI_Controller
 		$response = $this->customguzzle->postBlank('login','application/json', $post);
 		if(isset($response['error']) && !$response['error']){
 			$userdata = json_decode($response['data']);
-			$userdata = $userdata[0];
+			$ud = $userdata[0];
 			// echo $userdata->nim;
 			$userdata_arr = array();
-			foreach ($userdata as $key => $value) {
+			foreach ($ud as $key => $value) {
 				# code...
 				$userdata_arr[$key] = $value;
 			}
-			echo $userdata;
+			// echo $userdata;
 			$this->session->set_userdata($userdata_arr);
 			echo isset($userdata_arr['nim'])." ".isset($userdata_arr['nip']);
 			if(isset($userdata_arr['nim'])){
