@@ -22,6 +22,87 @@
     		<div class="row">
     			<div class="col-lg-4">
 
+<<<<<<< HEAD
+            <!-- Calendar -->
+            <div class="card bg-gradient-success">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="far fa-calendar-alt"></i>
+                  Calendar
+                </h3>
+                <!-- tools card -->
+                <div class="card-tools">
+                  <!-- button with a dropdown -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                      <i class="fas fa-bars"></i></button>
+                    <div class="dropdown-menu" role="menu">
+                      <a href="#" class="dropdown-item">Add new event</a>
+                      <a href="#" class="dropdown-item">Clear events</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">View calendar</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body pt-0">
+                <!--The calendar -->
+                <div id="calendar" style="width: 100%"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-8">
+            <div class="card card-cyan">
+              <div class="card-header">
+                <span class="float-left">Kelas Hari Ini</span>
+                <div class="card-tools">
+                  <div class="clearfix">
+                    <span class="float-right"><?php print date("l , j F Y")?></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Mata Kuliah</th>
+                      <th>Dosen</th>
+                      <th>Ruangan</th>
+                      <th>Waktu</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sistem Terdistribusi</td>
+                      <td>Herlino Nanang</td>
+                      <td>08.30-12.00</td>
+                      <td>AA 303</td>
+                    </tr>
+                    <tr>
+                      <td>Pemrograman Citral Digital</td>
+                      <td>Dewiyanti Liliana</td>
+                      <td>13.30-15.00</td>
+                      <td>Lab GSG 3</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </div>>
+=======
     				<!-- Calendar -->
     				<div class="card bg-gradient-success">
     					<div class="card-header border-0">
@@ -105,3 +186,4 @@
     		</div>
     	</div><!-- /.container-fluid -->
     </div>>
+>>>>>>> d9664d19a1e7aaa32298d4fd92660e1fef854b02

@@ -35,7 +35,15 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
             <span class="float-left">Kelas Hari Ini</span>
             <div class="card-tools">
               <div class="clearfix">
+<<<<<<< HEAD
                 <span class="float-right"><?php echo $tanggal ?></span>
+=======
+                <span class="float-right">
+                  <?php
+
+                  print date("j F Y");
+                ?></span>
+>>>>>>> 88e1e97a1d619365ea01b063a22422a3d6e5fb77
               </div>
             </div>
           </div>
