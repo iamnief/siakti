@@ -16,6 +16,12 @@ class Login extends CI_Controller
 		$this->load->view('absensi/login');
 	}
 
+	public function signout()
+	{
+		$this->session->sess_destroy();
+		header('Location: '.site_url().'login/');
+	}
+
 	public function signin()
 	{
 		$post = $this->input->post();
@@ -29,6 +35,7 @@ class Login extends CI_Controller
 				# code...
 				$userdata_arr[$key] = $value;
 			}
+			echo $userdata;
 			$this->session->set_userdata($userdata_arr);
 			echo isset($userdata_arr['nim'])." ".isset($userdata_arr['nip']);
 			if(isset($userdata_arr['nim'])){
@@ -39,6 +46,9 @@ class Login extends CI_Controller
 				$this->session->sess_destroy();
 				header('Location: '.site_url().'login/');
 			}
+		} else {
+			$this->session->sess_destroy();
+			header('Location: '.site_url().'login/');
 		}
 	}
 }

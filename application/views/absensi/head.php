@@ -29,6 +29,7 @@
 <!-- summernote -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/summernote/summernote-bs4.css">
 
+
 <script>
     $(function() {
         $(".mata-kuliah").accordion({
@@ -44,3 +45,8 @@
     //   $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
     // });
 </script>
+
+
+<script src="<?php echo base_url();?>/assets/dist/js/qrCode.js"></script>
+
+<!-- <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script> -->

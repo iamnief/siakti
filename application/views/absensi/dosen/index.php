@@ -1,9 +1,13 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
+$now = date('H:i:s');
 $hari = date('N');
-$tgl = date('d-m-y');
+$tgl = date('d-m-Y');
 $tanggal = date('l, d F Y');
-$url = 'jadwalkuliah/dosen/75/2/' . $hari . '/' . $tgl;
+$dosen = $this->session->get_userdata();
+$nip_dosen = $dosen['nip'];
+$url = 'jadwalkuliah/dosen/' . $nip_dosen . '/' . $hari . '/' . $tgl;
+// echo $url;
 $response  = $this->customguzzle->getBasicToken($url, 'application/json');
 ?>
 
@@ -40,6 +44,13 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
               $data_jadwal = json_decode($response['data']);
               foreach ($data_jadwal as $key => $value) {
                 $value = json_decode(json_encode($value));
+                $data_absen = array(
+                  'kd_absendsn' => $nip_dosen . '1' . $value->namaklas . $value->kodejdwl,
+                  'jam_msk' => $now,
+                  'staff_nip' => $nip_dosen,
+                  'pertemuanke' => '1',
+                  'jadwal_kul_kodejdwl' => $value->kodejdwl
+                );
                 echo '<div class="mata-kuliah card">';
                 echo '<div class="row">';
                 echo '<div class="matkul col-8">';
@@ -50,6 +61,7 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
                 echo '</div>';
                 echo '<div class="status col-4">';
                 echo '<p>Kelas sudah berakhir</p>';
+                // echo '<a href=' . site_url('absensi_dosen/detail_kelas') . ' class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>';
                 echo '<a href=' . site_url('absensi_dosen/detail_kelas') . ' class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
                 echo '</div>';
                 echo '</div>';

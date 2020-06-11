@@ -11,10 +11,6 @@
 <script src="<?php echo base_url(); ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>/assets/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>/assets/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>/assets/dist/js/demo.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
 <!-- Sparkline -->
@@ -48,7 +44,7 @@
 
 
 <!-- PAGE SCRIPTS -->
-<script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script> -->
 <script type="text/javascript">
   $(function() {
     $("#example1").DataTable();
@@ -67,7 +63,8 @@
   });
 </script>
 
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
   var qrcode = new QRCode(document.getElementById("qrCode"), {
     width: 350,
     height: 350
@@ -79,4 +76,4 @@
   }
 
   makeCode();
-</script>
+</script> -->

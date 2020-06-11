@@ -21,6 +21,20 @@ function sidebar_menu_item($title, $icon, $menuName, $menuActive, $page_name)
     <span class="brand-text font-weight-light">Sistem Informasi TIK</span>
 </a>
 
+<?php
+$user = $this->session->get_userdata();
+$id = 'empty';
+$nama = 'noname';
+if (isset($user['nim'])){
+    $id = $user['nim'];
+    $nama = $user['nama_mhs'];
+}
+else if (isset($user['nip'])){
+    $id = $user['nip'];
+    $nama = $user['nama'];
+}
+?>
+
 <!-- Sidebar -->
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -29,7 +43,7 @@ function sidebar_menu_item($title, $icon, $menuName, $menuActive, $page_name)
             <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Ilham Hanif</a>
+            <a href="#" class="d-block"><?php echo $nama?></a>
         </div>
     </div>
 

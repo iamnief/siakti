@@ -54,4 +54,14 @@ class Absensi_Dosen extends CI_Controller {
         $data['pages'] = $this->load->view('absensi/dosen/kelas_pengganti','',true);
         $this->load->view('absensi/master',array('main'=>$data));
 	}
+
+	public function mulai_kelas()
+	{
+		$url_mulai_kelas = 'absensi/';
+		$data['userType'] = 'dosen';
+		$data['title'] = 'Absensi Dosen';
+		$data['menuActive'] = 'dashboard';
+        $data['pages'] = $this->load->view('absensi/dosen/kelas_pengganti','',true);
+        $this->load->view('absensi/master',array('main'=>$data));
+	}
 }
