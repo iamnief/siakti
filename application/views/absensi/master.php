@@ -3,10 +3,13 @@
 
 <head>
 	<title><?php echo $main['title']; ?></title>
-	<?php $this->load->view('absensi/head') ?>
+	<?php
+	$this->load->view('absensi/head');
+	if (isset($main['jshead'])) echo $main['jshead'];
+	?>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 	<div class="wrapper">
 
 		<!-- Navbar -->
@@ -34,13 +37,16 @@
 		<!-- /.control-sidebar -->
 
 		<!-- footer -->
-			<?php $this->load->view('absensi/footer') ?>
+		<?php
+		$this->load->view('absensi/footer');
+		if (isset($main['jsbottom'])) echo $main['jsbottom'];
+		?>
 		<!-- END footer -->
 	</div>
 	<!-- ./wrapper -->
 
 	<!-- javascript -->
-	<?php $this->load->view('absensi/javascript') ?>
+	<?php $this->load->view('absensi/javascript'); ?>
 	<!-- END javascript -->
 
 </body>
