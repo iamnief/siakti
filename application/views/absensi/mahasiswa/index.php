@@ -37,7 +37,7 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
             <div class="card-tools">
               <div class="clearfix">
                 <span class="float-right">
-                  <?php print date("l, j F Y"); ?></span>
+                  <?php echo date("l, j F Y"); ?></span>
               </div>
             </div>
           </div>
