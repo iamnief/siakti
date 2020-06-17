@@ -4,11 +4,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Absensi_admin extends CI_Controller
 {
 
-    var $API ="";
+    var $user;
 
     function __construct() {
-        parent::__construct();
-        $this->API="http://localhost/siakti-api/index.php";
+		parent::__construct();
+		
+		date_default_timezone_set("Asia/Jakarta");
+		
+		$this->user = $this->session->get_userdata();
     }
 
 	public function index()
