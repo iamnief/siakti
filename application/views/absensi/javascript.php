@@ -55,13 +55,6 @@
 <script type="text/javascript">
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-<script type="text/javascript">
-  // The Calender
-  $('#calendar').datetimepicker({
-    format: 'L',
-    inline: true
-  });
-</script>
 
 
 <!-- <script type="text/javascript">

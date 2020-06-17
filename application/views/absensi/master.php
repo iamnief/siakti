@@ -37,16 +37,16 @@
 		<!-- /.control-sidebar -->
 
 		<!-- footer -->
-		<?php
-		$this->load->view('absensi/footer');
-		if (isset($main['jsbottom'])) echo $main['jsbottom'];
-		?>
+		<?php $this->load->view('absensi/footer'); ?>
 		<!-- END footer -->
 	</div>
 	<!-- ./wrapper -->
 
 	<!-- javascript -->
-	<?php $this->load->view('absensi/javascript'); ?>
+	<?php
+	$this->load->view('absensi/javascript');
+	if (isset($main['jsbottom'])) echo $main['jsbottom'];
+	?>
 	<!-- END javascript -->
 
 </body>

@@ -31,15 +31,15 @@
 
 
 <script>
-    $(function() {
-        $(".mata-kuliah").accordion({
-            collapsible: true,
-            icons: null,
-            active: false
+    // $(function() {
+    //     $(".mata-kuliah").accordion({
+    //         collapsible: true,
+    //         icons: null,
+    //         active: false
 
-        });
+    //     });
 
-    });
+    // });
     // $('#buttonDetail').on('click', function (e) {
     //   $('.mata-kuliah').find('#detail').stop().slideUp();
     //   $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
@@ -47,6 +47,6 @@
 </script>
 
 
-<script src="<?php echo base_url();?>/assets/dist/js/qrCode.js"></script>
+
 
 <!-- <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script> -->
