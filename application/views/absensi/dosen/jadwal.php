@@ -74,12 +74,13 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
                   echo '<a class="btn btn-secondary btn-sm" role="button" disabled="">Mulai Kelas</a>';
                 } else {
                   $data_absen = array(
-                    // 'kd_absendsn' => $nip_dosen . '1' . $value->namaklas . $value->kodejdwl,
                     'jam_msk' => $now,
                     'staff_nip' => $nip_dosen,
-                    'pertemuanke' => '1',
-                    'jadwal_kul_kodejdwl' => $value->kodejdwl
+                    'pertemuanke' => '1'
                   );
+                  if (isset($value->kodejdwl)) $data_absen['jadwal_kul_kodejdwl'] = $value->kodejdwl;
+                  else if (isset($value->kd_gantikls)) $data_absen['kls_pengganti_kd_gantikls'] = $value->kd_gantikls;
+
                   echo '<a href=' . site_url('absensi_dosen/mulai_kelas')
                     . ' class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>';
                 }
