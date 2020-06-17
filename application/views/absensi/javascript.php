@@ -39,7 +39,6 @@
 <!-- Select2 -->
 <script src="<?php echo base_url(); ?>/assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
-<script src="<?php echo base_url(); ?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
 

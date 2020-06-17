@@ -1,7 +1,12 @@
 <script type="text/javascript">
   // The Calender
-  $('#calendar').datetimepicker({
-    format: 'L',
-    inline: true
-  });
+  $(document).ready(function() {
+      $('#calendar').datepicker({
+        onSelect: function(calendar){
+          console.log(calendar);
+        },
+        format: 'L',
+        inline: true
+      });
+    });
 </script>

@@ -113,4 +113,4 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
       </div>
     </div>
   </div><!-- /.container-fluid -->
-</div>>
+</div>
