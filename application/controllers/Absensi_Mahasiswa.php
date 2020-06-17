@@ -30,6 +30,7 @@ class Absensi_Mahasiswa extends CI_Controller
 
 	public function jadwal()
 	{
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/mhs_jdwl', '', true);
 		$layout['userType'] = 'mahasiswa';
 		$layout['title'] = 'Absensi Mahasiswa';
 		$layout['menuActive'] = 'jadwal';
@@ -39,6 +40,7 @@ class Absensi_Mahasiswa extends CI_Controller
 
 	public function absen()
 	{
+		$layout['jshead'] = $this->load->view('absensi/jshead/mhs_absen', '', true);
 		$layout['userType'] = 'mahasiswa';
 		$layout['title'] = 'Absensi Mahasiswa';
 		$layout['menuActive'] = 'absen';

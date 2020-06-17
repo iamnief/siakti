@@ -17,56 +17,57 @@ class Absensi_Dosen extends CI_Controller
 
 	public function index()
 	{
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'dashboard';
-		$data['pages'] = $this->load->view('absensi/dosen/index', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'dashboard';
+		$layout['pages'] = $this->load->view('absensi/dosen/index', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 
 	public function jadwal()
 	{
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'jadwal';
-		$data['pages'] = $this->load->view('absensi/dosen/jadwal', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_jdwl', '', true);
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'jadwal';
+		$layout['pages'] = $this->load->view('absensi/dosen/jadwal', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 
 	public function akhiri_kelas()
 	{
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'jadwal';
-		$data['pages'] = $this->load->view('absensi/dosen/akhiri_kelas', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'jadwal';
+		$layout['pages'] = $this->load->view('absensi/dosen/akhiri_kelas', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 
 	public function detail_kelas()
 	{
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'jadwal';
-		$data['pages'] = $this->load->view('absensi/dosen/detail_kelas', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'jadwal';
+		$layout['pages'] = $this->load->view('absensi/dosen/detail_kelas', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 
 	public function kelas_pengganti()
 	{
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'dashboard';
-		$data['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'dashboard';
+		$layout['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 
 	public function mulai_kelas()
 	{
 		$url_mulai_kelas = 'absensi/';
-		$data['userType'] = 'dosen';
-		$data['title'] = 'Absensi Dosen';
-		$data['menuActive'] = 'dashboard';
-		$data['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
-		$this->load->view('absensi/master', array('main' => $data));
+		$layout['userType'] = 'dosen';
+		$layout['title'] = 'Absensi Dosen';
+		$layout['menuActive'] = 'dashboard';
+		$layout['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
+		$this->load->view('absensi/master', array('main' => $layout));
 	}
 }
