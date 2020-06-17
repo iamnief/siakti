@@ -1,10 +1,9 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
-$hari = date('N');
 $tgl = date('d-m-y');
 $user = $this->session->get_userdata();
 $kodeklas = $user['kelas_kodeklas'];
-$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/'  . $hari . '/' . $tgl;
+$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/' . $tgl;
 $response  = $this->customguzzle->getBasicToken($url, 'application/json');
 ?>
 
@@ -64,7 +63,7 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
           <!-- /.card-header -->
           <div class="card-body pt-0">
             <!--The calendar -->
-            <div id="calendar" style="width: 100%"></div>
+            <div id="calendar" style="width: 100%" ></div>
           </div>
           <!-- /.card-body -->
         </div>
@@ -76,7 +75,7 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
             <span class="float-left">Kelas Hari Ini</span>
             <div class="card-tools">
               <div class="clearfix">
-                <span class="float-right">
+                <span class="float-right" id="chosen_date" >
                   <?php echo date("l, j F Y"); ?>
                 </span>
               </div>

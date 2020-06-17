@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
 $now = date('H:i:s');
-$hari = date('N');
 $tgl = date('d-m-Y');
 $tanggal = date('l, d F Y');
 $dosen = $this->session->get_userdata();

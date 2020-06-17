@@ -53,23 +53,23 @@ else if (isset($user['nip'])){
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <?php
-            if ($main['userType'] == 'mahasiswa') {
-                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_mahasiswa/");
-                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $main['menuActive'], "absensi_mahasiswa/jadwal");
-                sidebar_menu_item("Absen", "nav-icon fas fa-edit", 'absen', $main['menuActive'], "absensi_mahasiswa/absen");
-                sidebar_menu_item("Ketidakhadiran", "nav-icon fas fa-file", 'kompen', $main['menuActive'], "absensi_mahasiswa/kompen");
-            } else if ($main['userType'] == 'dosen') {
-                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_dosen/");
-                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $main['menuActive'], "absensi_dosen/jadwal");
-            } else if ($main['userType'] == 'kps') {
-                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_kps/");
-                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $main['menuActive'], "absensi_kps/jadwal");
-                sidebar_menu_item("Absensi", "nav-icon fas fa-edit", 'absensi', $main['menuActive'], "absensi_kps/absensi");
-                sidebar_menu_item("Permohonan Verifikasi", "nav-icon far fa-copy", 'permohonan', $main['menuActive'], "absensi_kps/verifikasi_perkuliahan");
-            } else if ($main['userType'] == 'admin') {
-                sidebar_menu_item("Dashboard", "fas fa-tachometer-alt", 'dashboard', $main['menuActive'], "absensi_admin/");
-                sidebar_menu_item("Edit Dosen", "fas fa-edit", 'edit_dosen', $main['menuActive'], "absensi_admin/edit_dosen");
-                sidebar_menu_item("Edit Mahasiswa", "fas fa-edit", 'edit_mahasiswa', $main['menuActive'], "absensi_admin/edit_mahasiswa");
+            if ($userType == 'mahasiswa') {
+                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_mahasiswa/");
+                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_mahasiswa/jadwal");
+                sidebar_menu_item("Absen", "nav-icon fas fa-edit", 'absen', $menuActive, "absensi_mahasiswa/absen");
+                sidebar_menu_item("Ketidakhadiran", "nav-icon fas fa-file", 'kompen', $menuActive, "absensi_mahasiswa/kompen");
+            } else if ($userType == 'dosen') {
+                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_dosen/");
+                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_dosen/jadwal");
+            } else if ($userType == 'kps') {
+                sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_kps/");
+                sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_kps/jadwal");
+                sidebar_menu_item("Absensi", "nav-icon fas fa-edit", 'absensi', $menuActive, "absensi_kps/absensi");
+                sidebar_menu_item("Permohonan Verifikasi", "nav-icon far fa-copy", 'permohonan', $menuActive, "absensi_kps/verifikasi_perkuliahan");
+            } else if ($userType == 'admin') {
+                sidebar_menu_item("Dashboard", "fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_admin/");
+                sidebar_menu_item("Edit Dosen", "fas fa-edit", 'edit_dosen', $menuActive, "absensi_admin/edit_dosen");
+                sidebar_menu_item("Edit Mahasiswa", "fas fa-edit", 'edit_mahasiswa', $menuActive, "absensi_admin/edit_mahasiswa");
             }
             ?>
         </ul>

@@ -1,11 +1,6 @@
 <?php
-date_default_timezone_set("Asia/Jakarta");
-$hari = date('N');
-$tgl = date('d-m-y');
-$user = $this->session->get_userdata();
-$kodeklas = $user['kelas_kodeklas'];
-$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/'  . $hari . '/' . $tgl;
-$response  = $this->customguzzle->getBasicToken($url, 'application/json');
+$tgl = date('d-m-y H:i:s');
+// echo $tgl;
 ?>
 
 <!-- Content Header (Page header) -->
@@ -54,8 +49,8 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
               </thead>
               <tbody>
                 <?php
-                if (isset($response['error']) && !$response['error']) {
-                  $data_jadwal = json_decode($response['data']);
+                if (isset($resp_jadwal['error']) && !$resp_jadwal['error']) {
+                  $data_jadwal = json_decode($resp_jadwal['data']);
                   foreach ($data_jadwal as $key => $value) {
                     $value = json_decode(json_encode($value));
                     echo '<tr>';
