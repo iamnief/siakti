@@ -16,7 +16,7 @@ class Absensi_Mahasiswa extends CI_Controller
 
 	public function index()
 	{
-		$tgl = date('d-m-y');
+		$tgl = date('d-m-Y');
 		$kodeklas = $this->user['kelas_kodeklas'];
 		$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/'  . $tgl;
 		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url, 'application/json');
@@ -30,7 +30,15 @@ class Absensi_Mahasiswa extends CI_Controller
 
 	public function jadwal()
 	{
-		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/mhs_jdwl', '', true);
+		$data['tgl']='';
+		if(isset($_GET['tgl'])) $data['tgl'] = $_GET['tgl'];
+		else $data['tgl'] = date('d-m-Y');
+		
+		$kodeklas = $this->user['kelas_kodeklas'];
+		$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/' . $data['tgl'];
+		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url, 'application/json');
+
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/mhs_jdwl', $data, true);
 		$layout['userType'] = 'mahasiswa';
 		$layout['title'] = 'Absensi Mahasiswa';
 		$layout['menuActive'] = 'jadwal';

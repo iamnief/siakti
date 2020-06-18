@@ -1,13 +1,5 @@
 <?php
-date_default_timezone_set("Asia/Jakarta");
-$now = date('H:i:s');
-$tgl = date('d-m-Y');
-$tanggal = date('l, d F Y');
-$dosen = $this->session->get_userdata();
-$nip_dosen = $dosen['nip'];
-$url = 'jadwalkuliah/dosen/' . $nip_dosen . '/' . '11-06-2020';
-// echo $url;
-$response  = $this->customguzzle->getBasicToken($url, 'application/json');
+$now = date('d-m-Y H:i:s');
 ?>
 
 <!-- Content Header (Page header) -->
@@ -16,7 +8,7 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
     <div class="row mb-2">
       <div class="col-6">
         <h1 class="m-0 text-dark">Dashboard</h1>
-        <p><?php echo $tanggal ?></p>
+        <p><?php echo date('l, d F Y'); ?></p>
       </div><!-- /.col -->
       <div class="col-6">
         <ol class="breadcrumb float-right">
@@ -39,8 +31,8 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
           <div class="kelas-hari-ini">
             <h3>Kelas Hari Ini</h3>
             <?php
-            if (isset($response['error']) && !$response['error']) {
-              $data_jadwal = json_decode($response['data']);
+            if (isset($resp_jadwal['error']) && !$resp_jadwal['error']) {
+              $data_jadwal = json_decode($resp_jadwal['data']);
               foreach ($data_jadwal as $key => $value) {
                 $value = json_decode(json_encode($value));
                 echo '<div class="mata-kuliah card">';
@@ -52,18 +44,20 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
                 echo '<p>' . $value->ruangan_namaruang . '</p>';
                 echo '</div>';
                 echo '<div class="status col-4">';
+                $time = $tgl . " " . $value->jam_mulai;
                 if ($value->kd_absendsn == null) {
-                  if ($now < $value->jam_mulai) {
+                  if ($now <= $time) {
                     echo '<a class="btn btn-secondary btn-sm" role="button" disabled="">Mulai Kelas</a>';
+                    echo '<a href=' . site_url('absensi_dosen/batal_kelas')
+                      . ' class="btn btn-danger btn-sm" role="button">Batal Kelas</a>';
                   } else {
                     $data_absen = array(
                       'jam_msk' => $now,
-                      'staff_nip' => $nip_dosen,
-                      'pertemuanke' => '1'
+                      'staff_nip' => $user['nip']
                     );
                     if (isset($value->kodejdwl)) $data_absen['jadwal_kul_kodejdwl'] = $value->kodejdwl;
                     else if (isset($value->kd_gantikls)) $data_absen['kls_pengganti_kd_gantikls'] = $value->kd_gantikls;
-                    
+
                     echo '<a href=' . site_url('absensi_dosen/mulai_kelas')
                       . ' class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>';
                   }
@@ -80,34 +74,10 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
                 echo '</div>';
                 echo '</div>';
               }
+            } else {
+              echo "<h5>Tidak ada Kelas</h5>";
             }
             ?>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <p>Kelas sedang berlangsung</p>
-                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-yellow btn-sm" role="button">Lihat Kelas</a>
-                </div>
-              </div>
-            </div>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
-                </div>
-                <div class="status col-4">
-                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>
-                  <a href=<?php echo site_url("absensi_dosen/detail_kelas"); ?> class="btn btn-danger btn-sm" role="button">Batalkan Kelas</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <!-- /.card -->
@@ -118,20 +88,32 @@ $response  = $this->customguzzle->getBasicToken($url, 'application/json');
         <div class="card">
           <div class="kelas-tertunda">
             <h3>Kelas Dibatalkan</h3>
-            <div class="mata-kuliah card">
-              <div class="row">
-                <div class="matkul col-8">
-                  <p class="nama-matkul">Data Mining</p>
-                  <p>28 Februari 2020</p>
-                  <p>07.30 - 08.30</p>
-                  <p>TI - 6A</p>
+            <?php
+            if (isset($resp_kelas_batal['error']) && !$resp_kelas_batal['error']) {
+              $data_kelas_batal = json_decode($resp_kelas_batal['data']);
+              foreach ($data_kelas_batal as $key => $value) {
+                $value = json_decode(json_encode($value));
+            ?>
+                <div class="mata-kuliah card">
+                  <div class="row">
+                    <div class="matkul col-8">
+                      <p class="nama-matkul"><?php echo $value->namamk; ?></p>
+                      <p><?php echo date('d F Y', strtotime($value->tgl_batal)); ?></p>
+                      <p><?php echo $value->jml_jam; ?></p>
+                      <p><?php echo $value->namaklas; ?></p>
+                    </div>
+                    <div class="status col-4">
+                      <a href=<?php echo site_url("absensi_dosen/kelas_pengganti"); ?> class="btn btn-yellow btn-sm" role="button">Buat Kelas
+                        Pengganti</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="status col-4">
-                  <a href=<?php echo site_url("absensi_dosen/kelas_pengganti"); ?> class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                    Pengganti</a>
-                </div>
-              </div>
-            </div>
+            <?php
+              }
+            } else {
+              echo "<h5>Tidak ada Kelas</h5>";
+            }
+            ?>
           </div>
         </div>
       </div>
