@@ -26,27 +26,32 @@
           <div class="card-header">
             <div class="row">
               <div class="col-2">
-                <p>Mata Kuliah</p>
-                <p>Waktu</p>
-                <p>Kelas</p>
-                <p>Status</p>
+                <p><b>Mata Kuliah</b></p>
+                <p><b>Waktu</b></p>
+                <p><b>Kelas</b></p>
+                <p><b>Status</b></p>
               </div>
               <div class="col-8">
-                <p>Data Mining</p>
-                <p>07.30 - 08.30</p>
-                <p>TI - 6A</p>
-                <p>Sedang berlangsung</p>
+                <p><?php echo $namamk ?></p>
+                <p><?php echo $waktu ?></p>
+                <p><?php echo $namaklas ?></p>
+                <p><?php echo $status ?></p>
               </div>
               <div class="col-2">
                 <p></p>
-                <h3>00 : 16 : 35</h3>
-                <a href="akhiri_kelas" class="btn btn-yellow btn-sm" role="button">Akhiri Kelas</a>
+                <!-- <h3>00 : 16 : 35</h3> -->
+                <form action="<?php echo site_url('absensi_dosen/akhiri_kelas'); ?>" method="post">
+                  <input style="display: none;" name="kd_absendsn" id="kode" value="<?php echo $kd_absendsn ?>">
+                  <?php if ($status == 'berlangsung') { ?>
+                    <button type="submit" class="btn btn-yellow btn-sm">Akhiri Kelas</button>
+                  <?php } ?>
+                </form>
               </div>
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table text-nowrap">
+            <table class="table text-nowrap" id="absen_mahasiswa">
               <thead>
                 <tr>
                   <th class="w-50">Nama</th>
