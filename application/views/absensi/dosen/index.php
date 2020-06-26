@@ -35,44 +35,82 @@ $now = date('d-m-Y H:i:s');
               $data_jadwal = json_decode($resp_jadwal['data']);
               foreach ($data_jadwal as $key => $value) {
                 $value = json_decode(json_encode($value));
-                echo '<div class="mata-kuliah card">';
-                echo '<div class="row">';
-                echo '<div class="matkul col-8">';
-                echo '<p class="nama-matkul">' . $value->namamk . '</p>';
-                echo '<p>' . $value->jam_mulai . " - " . $value->jam_selesai . '</p>';
-                echo '<p>' . $value->namaklas . '</p>';
-                echo '<p>' . $value->ruangan_namaruang . '</p>';
-                echo '</div>';
-                echo '<div class="status col-4">';
-                $time = $tgl . " " . $value->jam_mulai;
-                if ($value->kd_absendsn == null) {
-                  if ($now <= $time) {
-                    echo '<a class="btn btn-secondary btn-sm" role="button" disabled="">Mulai Kelas</a>';
-                    echo '<a href=' . site_url('absensi_dosen/batal_kelas')
-                      . ' class="btn btn-danger btn-sm" role="button">Batal Kelas</a>';
-                  } else {
-                    $data_absen = array(
-                      'jam_msk' => $now,
-                      'staff_nip' => $user['nip']
-                    );
-                    if (isset($value->kodejdwl)) $data_absen['jadwal_kul_kodejdwl'] = $value->kodejdwl;
-                    else if (isset($value->kd_gantikls)) $data_absen['kls_pengganti_kd_gantikls'] = $value->kd_gantikls;
-
-                    echo '<a href=' . site_url('absensi_dosen/mulai_kelas')
-                      . ' class="btn btn-yellow btn-sm" role="button">Mulai Kelas</a>';
-                  }
-                } else if ($value->abs_jam_keluar == null && $value->abs_jam_msk != null) {
-                  echo '<p>Kelas sedang berlangsung</p>';
-                  echo '<a href=' . site_url('absensi_dosen/detail_kelas')
-                    . ' class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
-                } else {
-                  echo '<p>Kelas sudah berakhir</p>';
-                  echo '<a href=' . site_url('absensi_dosen/detail_kelas')
-                    . ' class="btn btn-yellow btn-sm" role="button">Detail Kehadiran</a>';
-                }
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
+            ?>
+                <div class="mata-kuliah card">
+                  <div class="row">
+                    <div class="matkul col-8">
+                      <p class="nama-matkul"><?php echo $value->namamk ?></p>
+                      <p><?php echo $value->jam_mulai . " - " . $value->jam_selesai ?></p>
+                      <p><?php echo $value->namaklas ?></p>
+                      <p><?php echo $value->ruangan_namaruang ?></p>
+                    </div>
+                    <?php
+                    // echo "<div class='status col-4'>";
+                    $time = $tgl . " " . $value->jam_mulai;
+                    if ($value->kd_absendsn == null) {
+                      $kode = '';
+                      $tipe_kelas = '';
+                      if (isset($value->kodejdwl)) {
+                        $tipe_kelas = 'normal';
+                        $kode = $value->kodejdwl;
+                      } else if (isset($value->kd_gantikls)) {
+                        $tipe_kelas = 'pengganti';
+                        $kode = $value->kd_gantikls;
+                      }
+                    ?>
+                      <div class="status col-4">
+                        <?php
+                        if ($now <= $time) {
+                        ?>
+                          <!-- Membatalkan Kelas -->
+                          <button class="btn btn-secondary btn-sm" role="button" disabled="">Mulai Kelas</button>
+                        <?php
+                        } else {
+                        ?>
+                          <!-- Memulai Kelas -->
+                          <form action="<?php echo site_url('absensi_dosen/mulai_kelas'); ?>" method="post">
+                            <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" style="display: none;">
+                            <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" style="display: none;">
+                            <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" style="display: none;">
+                            <button type="submit" class="btn btn-yellow btn-sm">Mulai Kelas</button>
+                          </form>
+                        <?php
+                        }
+                        ?>
+                        <form action="<?php echo site_url('absensi_dosen/batal_kelas'); ?>" method="post">
+                          <input type="text" name="tgl" value="<?php echo $tgl; ?>" style="display: none;">
+                          <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" style="display: none;">
+                          <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" style="display: none;">
+                          <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" style="display: none;">
+                          <button type="submit" class="btn btn-danger btn-sm">Batal Kelas</button>
+                        </form>
+                      </div>
+                    <?php
+                    } else {
+                    ?>
+                      <!-- Melihat Detail Kelas -->
+                      <form class="status col-4" action="<?php echo site_url('absensi_dosen/detail_kelas'); ?>" method="post">
+                        <?php
+                        if ($value->abs_jam_keluar == null && $value->abs_jam_msk != null) {
+                        ?>
+                          <p>Kelas sedang berlangsung</p>
+                          <input type="text" name="status" value="berlangsung" style="display: none;">
+                        <?php } else { ?>
+                          <p>Kelas sudah berakhir</p>
+                          <input type="text" name="status" value="berakhir" style="display: none;">
+                        <?php } ?>
+                        <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" style="display: none;">
+                        <input type="text" name="waktu" value="<?php echo $value->jam_mulai . ' - ' . $value->jam_selesai; ?>" style="display: none;">
+                        <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" style="display: none;">
+                        <input type="text" name="kd_absendsn" value="<?php echo $value->kd_absendsn; ?>" style="display: none;">
+                        <button type="submit" class="btn btn-yellow btn-sm">Detail Kehadiran</button>
+                      </form>
+                    <?php
+                    }
+                    ?>
+                  </div>
+                </div>
+            <?php
               }
             } else {
               echo "<h5>Tidak ada Kelas</h5>";
@@ -86,7 +124,7 @@ $now = date('d-m-Y H:i:s');
       <div class="col-lg-6">
 
         <div class="card">
-          <div class="kelas-tertunda">
+          <div class="kelas-hari-ini">
             <h3>Kelas Dibatalkan</h3>
             <?php
             if (isset($resp_kelas_batal['error']) && !$resp_kelas_batal['error']) {
@@ -99,13 +137,17 @@ $now = date('d-m-Y H:i:s');
                     <div class="matkul col-8">
                       <p class="nama-matkul"><?php echo $value->namamk; ?></p>
                       <p><?php echo date('d F Y', strtotime($value->tgl_batal)); ?></p>
-                      <p><?php echo $value->jml_jam; ?></p>
+                      <p><?php echo $value->jml_jam; ?> jam kuliah</p>
                       <p><?php echo $value->namaklas; ?></p>
                     </div>
-                    <div class="status col-4">
-                      <a href=<?php echo site_url("absensi_dosen/kelas_pengganti"); ?> class="btn btn-yellow btn-sm" role="button">Buat Kelas
-                        Pengganti</a>
-                    </div>
+                    <form class="status col-4" action="<?php echo site_url(); ?>absensi_dosen/kelas_pengganti" method="post">
+                      <input type="text" name="kd_gantikls" value="<?php echo $value->kd_gantikls; ?>" style="display: none;">
+                      <input type="text" name="tgl_batal" value="<?php echo $value->tgl_batal; ?>" style="display: none;">
+                      <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" style="display: none;">
+                      <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" style="display: none;">
+                      <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" style="display: none;">
+                      <button type="submit" class="btn btn-yellow btn-sm">Buat Pengganti</button>
+                    </form>
                   </div>
                 </div>
             <?php
