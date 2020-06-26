@@ -21,26 +21,33 @@
 <!-- Main content -->
 <div class="content">
   <div class="container-fluid">
-    <div class="card card-info">
+    <div class="card card-info" id="form_verif">
       <!-- form start -->
-      <form class="form-horizontal">
-        <div class="card-body text-center">
+      <form class="form-horizontal" method="">
+        <div class="card-body">
           <div class="form-group">
+            <input style="display: none;" name="kd_absendsn" id="kode" value="<?php echo $kd_absendsn ?>">
             <p>Silakan lakukan validasi untuk mengakhiri kelas</p>
           </div>
           <div class="form-group">
-            <label for="inputEmail3" class="col-form-label">Masukkan PIN (Ketua kelas)</label>
+            <label for="materi" class="col-form-label">Materi</label>
+            <input type="text" class="form-control" id="materi" name="materi" placeholder="Materi" required>
           </div>
           <div class="form-group">
-            <div>
-              <input type="password" class="form-control" id="inputPassword3" placeholder="PIN" style="text-align: center;">
-            </div>
+            <label for="nim_mhs" class="col-form-label">NIM Mahasiswa</label>
+            <input type="text" class="form-control" id="nim_mhs" name="nim_mhs" placeholder="NIM" required>
+          </div>
+          <div class="form-group">
+            <label for="pin_mhs" class="col-form-label">PIN Mahasiswa</label>
+            <input type="password" class="form-control" id="pin_mhs" name="pin_mhs" placeholder="PIN" required>
+          </div>
+          <div id="message"></div>
+          <div class="form-group">
+            <!-- <button type="submit" class="btn btn-yellow" onclick="onClickSelesai">Selesai</button> -->
+            <a class="btn btn-yellow" onclick="onClickSelesai()">Selesai</a>
           </div>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer text-center">
-          <button type="submit" class="btn btn-yellow">Selesai</button>
-        </div>
         <!-- /.card-footer -->
       </form>
     </div>
