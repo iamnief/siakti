@@ -1,4 +1,18 @@
 <?php
+function show_jadwal($resp_jadwal){
+  if (isset($resp_jadwal['error']) && !$resp_jadwal['error']) {
+    $data_jadwal = json_decode($resp_jadwal['data']);
+    foreach ($data_jadwal as $key => $value) {
+      $value = json_decode(json_encode($value));
+      echo '<tr>';
+      echo '<td>' . $value->namamk . '</td>';
+      echo '<td>' . $value->nama_dosen . '</td>';
+      echo '<td>' . $value->ruangan_namaruang . '</td>';
+      echo '<td>' . $value->jam_mulai . " - " . $value->jam_selesai . '</td>';
+      echo '</tr>';
+    }
+  }
+}
 ?>
 
 <!-- Content Header (Page header) -->
@@ -66,7 +80,7 @@
       <div class="col-8">
         <div class="card card-cyan">
           <div class="card-header">
-            <span class="float-left">Kelas Hari Ini</span>
+            <span class="float-left">Jadwal Kelas</span>
             <div class="card-tools">
               <div class="clearfix">
                 <span class="float-right" id="chosen_date" >
@@ -85,20 +99,9 @@
                   <th>Waktu</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="data_jadwal">
                 <?php
-                if (isset($resp_jadwal['error']) && !$resp_jadwal['error']) {
-                  $data_jadwal = json_decode($resp_jadwal['data']);
-                  foreach ($data_jadwal as $key => $value) {
-                    $value = json_decode(json_encode($value));
-                    echo '<tr>';
-                    echo '<td>' . $value->namamk . '</td>';
-                    echo '<td>' . $value->nama_dosen . '</td>';
-                    echo '<td>' . $value->ruangan_namaruang . '</td>';
-                    echo '<td>' . $value->jam_mulai . " - " . $value->jam_selesai . '</td>';
-                    echo '</tr>';
-                  }
-                }
+                show_jadwal($resp_jadwal);
                 ?>
               </tbody>
             </table>
