@@ -36,6 +36,7 @@ class Absensi_Mahasiswa extends CI_Controller
 		
 		$kodeklas = $this->user['kelas_kodeklas'];
 		$url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/' . $data['tgl'];
+		// $url = 'jadwalkuliah/mahasiswa/' . $kodeklas . '/' . '18-06-2020';
 		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url, 'application/json');
 
 		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/mhs_jdwl', $data, true);
@@ -49,11 +50,30 @@ class Absensi_Mahasiswa extends CI_Controller
 	public function absen()
 	{
 		$layout['jshead'] = $this->load->view('absensi/jshead/mhs_absen', '', true);
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/mhs_absen', '', true);
 		$layout['userType'] = 'mahasiswa';
 		$layout['title'] = 'Absensi Mahasiswa';
 		$layout['menuActive'] = 'absen';
 		$layout['pages'] = $this->load->view('absensi/mahasiswa/absen', '', true);
 		$this->load->view('absensi/master', array('main' => $layout));
+	}
+
+	public function scanabsen(){
+		$namaruang = $this->input->post('namaruang');
+		$url = 'absenmhs/scan';
+		$data = array(
+			'kelas_kodeklas' => $this->user['kelas_kodeklas'],
+			'nim' => $this->user['nim'],
+			'namaruang' => $namaruang,
+			'waktu' => date('H:i:s'),
+			'hari' => date('N'),
+			'tgl' => date('d-m-Y')
+		);
+		$resp = $this->customguzzle->postBlank($url, 'application/json', $data);
+		$resp_data = json_decode($resp['data']);
+		echo $resp_data->message;
+		// echo $resp_data['message'];
+		// echo $namaruang;
 	}
 
 	public function kompen()
