@@ -19,49 +19,31 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-<div 
-  style="
-    text-align: center;
-    margin:0;
-  "
->
+<div style="text-align: center; margin:0;">
   <a id="btn-scan-qr" style="
         height: 10em;
         width: 10em;
         margin-left: auto;
-        margin-right: auto;"
-  >
-    <img 
-      src="<?php echo base_url();?>assets/dist/img/scanqr.png"
-      style="
+        margin-right: auto;">
+    <img src="<?php echo base_url(); ?>assets/dist/img/scanqr.png" style="
         height: 10em;
         width: 10em;
         padding: 5px 5px 0px 5px;
         background: white;
         cursor: pointer;
-      "
-    >
+      ">
   </a>
-  <canvas 
-    style="
+  <canvas style="
       margin: auto;
       width: calc(100% - 20px);
       max-width: 400px;
-    " 
-    hidden="" 
-    id="qr-canvas"
-  >
+    " hidden="" id="qr-canvas">
   </canvas>
   <br>
-  <input 
-    id="btn-cancel-scan" 
-    type="button"
-    style="margin-top: 0px;"
-    value="Cancel"
-    hidden=""
-  />
+  <input id="btn-cancel-scan" type="button" style="margin-top: 0px;" value="Cancel" hidden="" />
   <div id="qr-result" hidden="" style="background-color: white; padding:15px; margin-top:10px">
-    <b>Hasil:</b> <span id="outputData"></span>
+    <b>Hasil:</b> <input id="outputData" disabled></input>
+    <b>Pesan:</b> <span id="message"></span>
   </div>
 </div>
 
