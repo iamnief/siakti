@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/fontawesome-free/css/all.min.css">
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css"> -->
+<!-- DataTable -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/dist/css/adminlte.min.css">
 <!-- css buatan sendiri -->
@@ -30,21 +31,21 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/summernote/summernote-bs4.css">
 
 
-<script>
-    // $(function() {
-    //     $(".mata-kuliah").accordion({
-    //         collapsible: true,
-    //         icons: null,
-    //         active: false
+<!-- <script>
+    $(function() {
+        $(".mata-kuliah").accordion({
+            collapsible: true,
+            icons: null,
+            active: false
 
-    //     });
+        });
 
-    // });
-    // $('#buttonDetail').on('click', function (e) {
-    //   $('.mata-kuliah').find('#detail').stop().slideUp();
-    //   $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
-    // });
-</script>
+    });
+    $('#buttonDetail').on('click', function (e) {
+      $('.mata-kuliah').find('#detail').stop().slideUp();
+      $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
+    });
+</script> -->
 
 
 

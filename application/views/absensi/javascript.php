@@ -7,6 +7,7 @@
 <script src="<?php echo base_url(); ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url(); ?>/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- DataTable -->
 <script src="<?php echo base_url(); ?>/assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?php echo base_url(); ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- AdminLTE App -->
@@ -40,32 +41,13 @@
 <script src="<?php echo base_url(); ?>/assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
 <script src="<?php echo base_url(); ?>/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="<?php echo base_url(); ?>/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
 
 <!-- PAGE SCRIPTS -->
-<!-- <script src="<?php echo base_url(); ?>/assets/plugins/qrcode/qrcode.min.js"></script> -->
-<script type="text/javascript">
-  $(function() {
-    $("#example1").DataTable();
-  });
-</script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script type="text/javascript">
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-
-
-<!-- <script type="text/javascript">
-  var qrcode = new QRCode(document.getElementById("qrCode"), {
-    width: 350,
-    height: 350
-  });
-
-  function makeCode() {
-    var qrCodeText = document.getElementById("qrCodeValue");
-    qrcode.makeCode(qrCodeText.value);
-  }
-
-  makeCode();
-</script> -->
