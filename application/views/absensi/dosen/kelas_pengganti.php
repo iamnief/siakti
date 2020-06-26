@@ -22,18 +22,18 @@
   <div class="container-fluid">
     <div class="card card-info">
       <!-- form start -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" action="" method="put">
         <div class="card-body">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Mata Kuliah</label>
             <div class="col-sm-10">
-              <p>Data Mining</p>
+              <p><?php echo $namamk ?></p>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Kelas</label>
             <div class="col-sm-10">
-              <p>TI - 6A</p>
+              <p><?php echo $namaklas ?></p>
             </div>
           </div>
           <div class="form-group row">
@@ -45,17 +45,18 @@
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah jam</label>
             <div class="col-sm-10">
-              <p>1 jam perkuliahan</p>
+              <p><?php echo $jml_jam ?> jam perkuliahan</p>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal & Waktu</label>
             <div class="col-sm-10">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+              <div class="input-group date" id="tanggal_pengganti" data-target-input="nearest">
+                <!-- <div class="input-group-append" data-target="#tanggal_pengganti" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
-                <input type="text" class="form-control float-right" id="reservationtime">
+                <input type="text" class="form-control datetimepicker-input" data-target="#tanggal_pengganti"/> -->
+                <input type="date" class="form-control" placeholder="dd-mm-yyyy" name="tanggal_pengganti"/>
               </div>
             </div>
           </div>
