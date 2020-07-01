@@ -53,9 +53,11 @@ $now = date('d-m-Y H:i:s');
                       if (isset($value->kodejdwl)) {
                         $tipe_kelas = 'normal';
                         $kode = $value->kodejdwl;
+                        // echo "jdwl:".$kode;
                       } else if (isset($value->kd_gantikls)) {
                         $tipe_kelas = 'pengganti';
                         $kode = $value->kd_gantikls;
+                        // echo "gnt:".$kode;
                       }
                     ?>
                       <div class="status col-4">

@@ -71,7 +71,9 @@ class Absensi_Mahasiswa extends CI_Controller
 		);
 		$resp = $this->customguzzle->postBlank($url, 'application/json', $data);
 		$resp_data = json_decode($resp['data']);
-		echo $resp_data->message;
+		// echo $resp_data;
+		echo json_encode($resp);
+		// echo $resp_data->message;
 		// echo $resp_data['message'];
 		// echo $namaruang;
 	}

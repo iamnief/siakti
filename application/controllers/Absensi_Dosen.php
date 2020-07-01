@@ -147,19 +147,14 @@ class Absensi_Dosen extends CI_Controller
 
 		/* menyetel absen tiap mahasiswa di kelas dengan status alpha */
 		$url_absen_mhs = 'absenmhs/mulaikelas';
-		$data_absen_mhs = array(
-			'kodeklas' => $kodeklas,
-			'tgl' => date('d-m-Y'),
-		);
-		if ($tipe_kelas == 'normal') {
-			$data_absen_mhs['jadwal_kul_kodejdwl'] = $kodejdwl;
-			$data_absen_mhs['tipe_kelas'] = $tipe_kelas;
-		} else if ($tipe_kelas == 'pengganti') {
-			$data_absen_mhs['kls_pengganti_kd_gantikls'] = $kodejdwl;
-			$data_absen_mhs['tipe_kelas'] = $tipe_kelas;
-		}
+
+		$data_absen_mhs['kodeklas'] = $kodeklas;
+		$data_absen_mhs['tgl'] = date('d-m-Y');
+		$data_absen_mhs['kode'] = $kodejdwl;
+		$data_absen_mhs['tipe_kelas'] = $tipe_kelas;
+
 		$resp2 = $this->customguzzle->postBlank($url_absen_mhs, 'application/json', $data_absen_mhs);
-		// echo json_encode($resp2);
+		echo json_encode($resp2);
 
 		header("Location: " . site_url('absensi_dosen/'));
 	}
