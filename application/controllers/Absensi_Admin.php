@@ -16,7 +16,6 @@ class Absensi_admin extends CI_Controller
 
 	public function index()
 	{
-		$layout['userType'] = 'admin';
 		$layout['title'] = 'Absensi admin';
 		$layout['menuActive'] = 'dashboard';
 		$layout['pages'] = $this->load->view('absensi/admin/index', '', true);
@@ -25,7 +24,6 @@ class Absensi_admin extends CI_Controller
 
 	public function edit_mahasiswa()
 	{
-		$layout['userType'] = 'admin';
 		$layout['title'] = 'Absensi admin';
 		$layout['menuActive'] = 'edit_mahasiswa';
 		$layout['pages'] = $this->load->view('absensi/admin/edit_mahasiswa', '', true);
@@ -34,7 +32,6 @@ class Absensi_admin extends CI_Controller
 
 	public function edit_dosen()
 	{
-		$layout['userType'] = 'admin';
 		$layout['title'] = 'Absensi admin';
 		$layout['menuActive'] = 'edit_dosen';
 		$layout['pages'] = $this->load->view('absensi/admin/edit_dosen', '', true);
@@ -43,7 +40,6 @@ class Absensi_admin extends CI_Controller
 
 	public function detail_mahasiswa()
 	{
-		$layout['userType'] = 'admin';
 		$layout['title'] = 'Absensi admin';
 		$layout['menuActive'] = 'edit_mahasiswa';
 		$layout['pages'] = $this->load->view('absensi/admin/detail_mahasiswa', '', true);
@@ -52,7 +48,6 @@ class Absensi_admin extends CI_Controller
 
 	public function detail_dosen()
 	{
-		$layout['userType'] = 'admin';
 		$layout['title'] = 'Absensi admin';
 		$layout['menuActive'] = 'edit_dosen';
 		$layout['pages'] = $this->load->view('absensi/admin/detail_dosen', '', true);

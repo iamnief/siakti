@@ -28,7 +28,6 @@ class Absensi_Dosen extends CI_Controller
 		$url_kelas_batal = 'jadwalkuliah/dosenbatal/' . $nip_dosen;
 		$data['resp_kelas_batal'] = $this->customguzzle->getBasicToken($url_kelas_batal, 'application/json');
 
-		$layout['userType'] = 'dosen';
 		$layout['title'] = 'Absensi Dosen';
 		$layout['menuActive'] = 'dashboard';
 		$layout['pages'] = $this->load->view('absensi/dosen/index', $data, true);
@@ -47,7 +46,6 @@ class Absensi_Dosen extends CI_Controller
 		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url, 'application/json');
 
 		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_jdwl', '', true);
-		$layout['userType'] = 'dosen';
 		$layout['title'] = 'Absensi Dosen';
 		$layout['menuActive'] = 'jadwal';
 		$layout['pages'] = $this->load->view('absensi/dosen/jadwal', $data, true);
@@ -58,7 +56,6 @@ class Absensi_Dosen extends CI_Controller
 	{
 		$data = $this->input->post();
 		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_akhiri_kls', '', true);
-		$layout['userType'] = 'dosen';
 		$layout['title'] = 'Absensi Dosen';
 		$layout['menuActive'] = 'jadwal';
 		$layout['pages'] = $this->load->view('absensi/dosen/akhiri_kelas', $data, true);
@@ -93,7 +90,6 @@ class Absensi_Dosen extends CI_Controller
 	{
 		$data = $this->input->post();
 		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_detail_kls', '', true);
-		$layout['userType'] = 'dosen';
 		$layout['title'] = 'Absensi Dosen';
 		$layout['menuActive'] = 'jadwal';
 		$layout['pages'] = $this->load->view('absensi/dosen/detail_kelas', $data, true);
@@ -114,8 +110,9 @@ class Absensi_Dosen extends CI_Controller
 	public function kelas_pengganti()
 	{
 		$data = $this->input->post();
-		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_kls_ganti', '', true);;
-		$layout['userType'] = 'dosen';
+		$data['resp_ruangan'] = $this->customguzzle->getBasicToken('ruangan/', 'application/json');
+
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_kls_ganti', '', true);
 		$layout['title'] = 'Absensi Dosen';
 		$layout['menuActive'] = 'dashboard';
 		$layout['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', $data, true);
@@ -170,5 +167,32 @@ class Absensi_Dosen extends CI_Controller
 		);
 		$resp1 = $this->customguzzle->postBlank($url_batalkelas, 'application/json', $data);
 		header("Location: " . site_url('absensi_dosen/'));
+	}
+
+	public function jam_terisi(){
+		$data = array(
+			'tgl' => $this->input->post('tgl'),
+			'kodeklas' => $this->input->post('kodeklas'),
+			'namaruang' => $this->input->post('namaruang'),
+			'nip' => $this->user['nip']
+		);
+
+		$resp = $this->customguzzle->postBlank('jadwalkuliah/jam_terisi', 'application/json', $data);
+		if (isset($resp['error']) && !$resp['error']){
+			$resp_data = json_decode($resp['data']);
+			$display = '<select multiple class="form-control" id="jam_ke" name="jam_ke">';
+			for ($i=0; $i < 12; $i++) { 
+				# code...
+				$display .= "<option ";
+				if ($resp_data[$i] == 'isi'){
+					$display .= "disabled";
+				}
+				$j = $i + 1;
+				$display .= ">".$j."</option>";
+			}
+			echo $display;
+		} else {
+			"Tidak ada jam";
+		}
 	}
 }

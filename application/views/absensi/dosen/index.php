@@ -148,6 +148,7 @@ $now = date('d-m-Y H:i:s');
                       <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" style="display: none;">
                       <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" style="display: none;">
                       <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" style="display: none;">
+                      <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" style="display: none;">
                       <button type="submit" class="btn btn-yellow btn-sm">Buat Pengganti</button>
                     </form>
                   </div>

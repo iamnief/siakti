@@ -42,7 +42,7 @@
   <br>
   <input id="btn-cancel-scan" type="button" style="margin-top: 0px;" value="Cancel" hidden="" />
   <div id="qr-result" hidden="" style="background-color: white; padding:15px; margin-top:10px">
-    <b>Hasil:</b> <input id="outputData" disabled></input>
+    <input id="outputData" hidden></input>
     <b>Pesan:</b> <span id="message"></span>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-  <!-- Tell the browser to be responsive to screen width -->
+<!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
@@ -31,21 +31,21 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/summernote/summernote-bs4.css">
 
 
-<!-- <script>
-    $(function() {
-        $(".mata-kuliah").accordion({
-            collapsible: true,
-            icons: null,
-            active: false
-
-        });
+<script>
+  $(function() {
+    $(".mata-kuliah").accordion({
+      collapsible: true,
+      icons: null,
+      active: false
 
     });
-    $('#buttonDetail').on('click', function (e) {
-      $('.mata-kuliah').find('#detail').stop().slideUp();
-      $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
-    });
-</script> -->
+
+  });
+  // $('#buttonDetail').on('click', function (e) {
+  //   $('.mata-kuliah').find('#detail').stop().slideUp();
+  //   $(this).closest('.mata-kuliah').find('#detail').stop().slideToggle();
+  // });
+</script>
 
 
 

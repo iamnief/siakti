@@ -53,20 +53,20 @@ else if (isset($user['nip'])){
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <?php
-            if ($userType == 'mahasiswa') {
+            if ($user['role'] == 'mahasiswa') {
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_mahasiswa/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_mahasiswa/jadwal");
                 sidebar_menu_item("Absen", "nav-icon fas fa-edit", 'absen', $menuActive, "absensi_mahasiswa/absen");
                 sidebar_menu_item("Ketidakhadiran", "nav-icon fas fa-file", 'kompen', $menuActive, "absensi_mahasiswa/kompen");
-            } else if ($userType == 'dosen') {
+            } else if ($user['role'] == 'dosen') {
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_dosen/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_dosen/jadwal");
-            } else if ($userType == 'kps') {
+            } else if ($user['role'] == 'kps') {
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_kps/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_kps/jadwal");
                 sidebar_menu_item("Absensi", "nav-icon fas fa-edit", 'absensi', $menuActive, "absensi_kps/absensi");
                 sidebar_menu_item("Permohonan Verifikasi", "nav-icon far fa-copy", 'permohonan', $menuActive, "absensi_kps/verifikasi_perkuliahan");
-            } else if ($userType == 'admin') {
+            } else if ($user['role'] == 'admin') {
                 sidebar_menu_item("Dashboard", "fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_admin/");
                 sidebar_menu_item("Edit Dosen", "fas fa-edit", 'edit_dosen', $menuActive, "absensi_admin/edit_dosen");
                 sidebar_menu_item("Edit Mahasiswa", "fas fa-edit", 'edit_mahasiswa', $menuActive, "absensi_admin/edit_mahasiswa");

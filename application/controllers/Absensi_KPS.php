@@ -16,16 +16,25 @@ class Absensi_KPS extends CI_Controller
 
     public function index()
     {
-        $layout['userType'] = 'kps';
+		$data['tgl'] = date('d-m-Y');
+
+		$data['user'] = $this->user;
+		$nip_dosen = $this->user['nip'];
+
+		$url_jadwal = 'jadwalkuliah/dosen/' . $nip_dosen . '/' . $data['tgl'];
+		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url_jadwal, 'application/json');
+
+		$url_kelas_batal = 'jadwalkuliah/dosenbatal/' . $nip_dosen;
+        $data['resp_kelas_batal'] = $this->customguzzle->getBasicToken($url_kelas_batal, 'application/json');
+        
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'dashboard';
-        $layout['pages'] = $this->load->view('absensi/kps/index', '', true);
+        $layout['pages'] = $this->load->view('absensi/dosen/index', $data, true);
         $this->load->view('absensi/master', array('main' => $layout));
     }
 
     public function absensi()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'absensi';
         $layout['pages'] = $this->load->view('absensi/kps/absensi', '', true);
@@ -34,7 +43,6 @@ class Absensi_KPS extends CI_Controller
 
     public function detail_perkuliahan()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'permohonan';
         $layout['pages'] = $this->load->view('absensi/kps/detail_perkuliahan', '', true);
@@ -43,7 +51,6 @@ class Absensi_KPS extends CI_Controller
 
     public function verifikasi_perkuliahan()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'permohonan';
         $layout['pages'] = $this->load->view('absensi/kps/verifikasi_perkuliahan', '', true);
@@ -52,16 +59,24 @@ class Absensi_KPS extends CI_Controller
 
     public function jadwal()
     {
-        $layout['userType'] = 'kps';
+		$data['tgl'] = '';
+		if (isset($_GET['tgl'])) $data['tgl'] = $_GET['tgl'];
+		else $data['tgl'] = date('d-m-Y');
+
+		$data['user'] = $this->user;
+		$nip_dosen = $this->user['nip'];
+		$url = 'jadwalkuliah/dosen/' . $nip_dosen . '/' . $data['tgl'];
+		$data['resp_jadwal']  = $this->customguzzle->getBasicToken($url, 'application/json');
+
+		$layout['jsbottom'] = $this->load->view('absensi/jsbottom/dsn_jdwl', '', true);
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'jadwal';
-        $layout['pages'] = $this->load->view('absensi/dosen/jadwal', '', true);
+        $layout['pages'] = $this->load->view('absensi/dosen/jadwal', $data, true);
         $this->load->view('absensi/master', array('main' => $layout));
     }
 
     public function akhiri_kelas()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'jadwal';
         $layout['pages'] = $this->load->view('absensi/dosen/akhiri_kelas', '', true);
@@ -70,7 +85,6 @@ class Absensi_KPS extends CI_Controller
 
     public function detail_kelas()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'jadwal';
         $layout['pages'] = $this->load->view('absensi/dosen/detail_kelas', '', true);
@@ -79,7 +93,6 @@ class Absensi_KPS extends CI_Controller
 
     public function kelas_pengganti()
     {
-        $layout['userType'] = 'kps';
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'dashboard';
         $layout['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
