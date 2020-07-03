@@ -38,9 +38,7 @@ $now = date('d-m-Y H:i:s');
           <!-- /today -->
           <div class="tab-pane fade show active" id="custom-content-below-today" role="tabpanel" aria-labelledby="custom-content-below-today-tab">
             <br/>
-            <div class="card">
               <div class="kelas-hari-ini">
-                <h3>Kelas Hari Ini</h3>
                 <?php
                 if (isset($resp_jadwal['error']) && !$resp_jadwal['error']) {
                   $data_jadwal = json_decode($resp_jadwal['data']);
@@ -130,17 +128,13 @@ $now = date('d-m-Y H:i:s');
                 }
                 ?>
               </div>
-            </div>
-            <!-- /.card -->
           </div>
           <!-- /.today -->
           
           <!-- /cancel -->
           <div class="tab-pane fade" id="custom-content-below-cancel" role="tabpanel" aria-labelledby="custom-content-below-cancel-tab">
             <br/>
-            <div class="card">
               <div class="kelas-hari-ini">
-                <h3>Kelas Dibatalkan</h3>
                 <?php
                 if (isset($resp_kelas_batal['error']) && !$resp_kelas_batal['error']) {
                   $data_kelas_batal = json_decode($resp_kelas_batal['data']);
@@ -173,7 +167,6 @@ $now = date('d-m-Y H:i:s');
                 }
                 ?>
               </div>
-            </div>
           </div>
           <!-- /.cancel -->
         </div>
