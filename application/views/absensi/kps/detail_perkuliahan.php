@@ -20,54 +20,51 @@
 <!-- Main content -->
 <div class="content">
   <div class="container-fluid">
-    <div class="card card-info">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-3">
-              <p>Mata Kuliah</p>
-              <p>Dosen Pengajar</p>
-              <p>Kelas</p>
-              <p>Minggu ke</p>
-              <p>Tanggal</p>
-              <p>SAP</p>
-              <p>Materi yang diajarkan</p>
-            </div>
-            <div class="col-9">
-              <p>Data Mining</p>
-              <p>Euis</p>
-              <p>TI - 6A</p>
-              <p>2</p>
-              <p>14 Januari 2020</p>
-              <p>Pengenalan</p>
-              <p>Pengenalan</p>
-            </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-2">
+            <p><b>Mata Kuliah</b></p>
+            <p><b>Dosen Pengajar</b></p>
+            <p><b>Kelas</b></p>
+          </div>
+          <div class="col-4">
+            <p>:Data Mining</p>
+            <p>:Euis</p>
+            <p>:TI - 6A</p>
+          </div>
+          <div class="col-2">
+            <p><b>Tanggal</b></p>
+            <p><b>SAP</b></p>
+            <p><b>Materi</b></p>
+          </div>
+          <div class="col-4">
+            <p>:14 Januari 2020</p>
+            <p>:Pengenalan</p>
+            <p>:Pengenalan</p>
           </div>
         </div>
-        <!-- /.card-header -->
-        <div class="table-responsive p-0">
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="card-body text-center">
-              <div>
-                <p>Masukkan Untuk Verifikasi Perkuliahan Ini</p>
-              </div>
-              <div class="form-group">
-                <div>
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="PIN" style="text-align: center;">
-                </div>
-              </div>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer text-center">
-              <button type="submit" class="btn btn-yellow">Selesai</button>
-            </div>
-            <!-- /.card-footer -->
-          </form>
-        </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
+      <!-- /.card-header -->
+      <div class="table-responsive p-0">
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="card-body text-center">
+            <div>
+              <p>Masukkan PIN untuk Verifikasi Perkuliahan Ini</p>
+            </div>
+            <div class="form-group">
+              <div>
+                <input type="password" class="form-control" name="pin" id="pin" placeholder="PIN">
+                <input type="text" class="form-control" name="kd_absendsn" id="kd_absendsn" hidden>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-yellow">Selesai</button>
+          </div>
+          <!-- /.card-body -->
+        </form>
+      </div>
+      <!-- /.table-responsive -->
     </div>
     <!-- /.card -->
   </div>

@@ -154,8 +154,4 @@
       </div>
       <!-- /.card -->
     </div>
-
-</section>
-<!-- /.content -->
-</div>
 </section>

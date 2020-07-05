@@ -179,20 +179,41 @@ class Absensi_Dosen extends CI_Controller
 
 		$resp = $this->customguzzle->postBlank('jadwalkuliah/jam_terisi', 'application/json', $data);
 		if (isset($resp['error']) && !$resp['error']){
+			$jam = array(
+				'07:30:00 - 08:19:59', '08:20:00 - 09:09:59', '09:10:00 - 09:59:59', '10:15:00 - 11:04:59',
+				'11:05:00 - 11:54:59', '12:45:00 - 13:34:59', '13:35:00 - 14:24:59', '14:25:00 - 15:14:59',
+				'15:45:00 - 16:34:59', '16:35:00 - 17:24:59', '17:25:00 - 18:14:59', '18:45:00 - 19:34:59'
+			);
 			$resp_data = json_decode($resp['data']);
-			$display = '<select multiple class="form-control" id="jam_ke" name="jam_ke">';
+			$display = '<select multiple class="form-control" id="jam_ke" name="jam_ke[]">';
 			for ($i=0; $i < 12; $i++) { 
 				# code...
 				$display .= "<option ";
 				if ($resp_data[$i] == 'isi'){
 					$display .= "disabled";
+					$display .= ">".$jam[$i]." (tidak bisa)</option>";
+				} else {
+					$j = $i + 1;
+					$display .= "value='".$j."'>".$jam[$i]."</option>";
 				}
-				$j = $i + 1;
-				$display .= ">".$j."</option>";
 			}
 			echo $display;
 		} else {
 			"Tidak ada jam";
 		}
+	}
+
+	public function ganti_kelas(){
+		$update = array(
+			'tgl_pengganti' => $this->input->post('tanggal_pengganti'),
+			'namaruang' => $this->input->post('namaruang'),
+			'kd_gantikls' => $this->input->post('kd_gantikls'),
+			'kode_jam' => $this->input->post('jam_ke')
+		);
+		$resp = $this->customguzzle->putBlank('kelaspengganti/ajukan/', 'application/json', $update);
+		// echo json_encode($resp);
+		if (isset($resp['error']) && !$resp['error']){
+			header("Location: " . site_url('absensi_dosen/'));
+		} else header("Location: " . site_url('absensi_dosen/'));
 	}
 }

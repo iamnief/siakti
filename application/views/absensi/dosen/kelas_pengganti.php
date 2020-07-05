@@ -22,8 +22,9 @@
   <div class="container-fluid">
     <div class="card card-info">
       <!-- form start -->
-      <form class="form-horizontal" action="" method="put">
-        <input type="text" id="kodeklas" name="kodeklas" value="<?php echo $kodeklas; ?>" style="display: none;">
+      <form class="form-horizontal" action="ganti_kelas" method="post">
+        <input type="text" id="kodeklas" name="kodeklas" value="<?php echo $kodeklas; ?>" hidden>
+        <input type="text" id="kd_gantikls" name="kd_gantikls" value="<?php echo $kd_gantikls; ?>">
         <div class="card-body">
           <div class="form-group row">
             <label class="col-sm-2">Mata Kuliah</label>
@@ -46,7 +47,7 @@
           <div class="form-group row">
             <label class="col-sm-2">Jumlah jam</label>
             <div class="col-sm-10">
-              <p>: <?php echo $jml_jam ?> jam perkuliahan</p>
+              <p>: <span id="jml_jam"><?php echo $jml_jam; ?></span> jam perkuliahan</p>
             </div>
           </div>
           <div class="form-group row">
@@ -82,6 +83,7 @@
           <div class="form-group row">
             <p id="message" style="color:red;" ></p>
           </div>
+          <button id="submit_kelas" type="submit" class="btn btn-yellow" hidden></button>
           <a class="btn btn-yellow" onclick="submitKls()">Submit</a>
           <a class="btn btn-danger">Batal</a>
         </div>

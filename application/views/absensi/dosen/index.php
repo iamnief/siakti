@@ -149,6 +149,9 @@ $now = date('d-m-Y H:i:s');
                           <p><?php echo $value->jml_jam; ?> jam kuliah</p>
                           <p><?php echo $value->namaklas; ?></p>
                         </div>
+                        <?php if($value->status == 'diajukan') {?>
+                        <div class="status col-4"><p><?php echo 'Sedang Diproses' ?></p></div>
+                          <?php } else {?>
                         <form class="status col-4" action="<?php echo site_url(); ?>absensi_dosen/kelas_pengganti" method="post">
                           <input type="text" name="kd_gantikls" value="<?php echo $value->kd_gantikls; ?>" style="display: none;">
                           <input type="text" name="tgl_batal" value="<?php echo $value->tgl_batal; ?>" style="display: none;">
@@ -158,6 +161,7 @@ $now = date('d-m-Y H:i:s');
                           <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" style="display: none;">
                           <button type="submit" class="btn btn-yellow btn-sm">Buat Pengganti</button>
                         </form>
+                        <?php }?>
                       </div>
                     </div>
                 <?php
