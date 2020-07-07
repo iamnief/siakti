@@ -65,7 +65,7 @@ else if (isset($user['nip'])){
                 sidebar_menu_item("Dashboard", "nav-icon fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_kps/");
                 sidebar_menu_item("Jadwal Perkuliahan", "nav-icon far fa-calendar-alt", 'jadwal', $menuActive, "absensi_kps/jadwal");
                 sidebar_menu_item("Absensi", "nav-icon fas fa-edit", 'absensi', $menuActive, "absensi_kps/absensi");
-                sidebar_menu_item("Permohonan Verifikasi", "nav-icon far fa-copy", 'permohonan', $menuActive, "absensi_kps/verifikasi_perkuliahan");
+                sidebar_menu_item("Verifikasi", "nav-icon far fa-copy", 'permohonan', $menuActive, "absensi_kps/list_verifikasi");
             } else if ($user['role'] == 'admin') {
                 sidebar_menu_item("Dashboard", "fas fa-tachometer-alt", 'dashboard', $menuActive, "absensi_admin/");
                 sidebar_menu_item("Edit Dosen", "fas fa-edit", 'edit_dosen', $menuActive, "absensi_admin/edit_dosen");
