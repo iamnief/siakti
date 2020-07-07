@@ -14,6 +14,8 @@ class Absensi_KPS extends CI_Controller
 		$this->user = $this->session->get_userdata();
     }
 
+    // Pages for KPS
+
     public function index()
     {
 		$data['tgl'] = date('d-m-Y');
@@ -43,17 +45,37 @@ class Absensi_KPS extends CI_Controller
 
     public function detail_perkuliahan()
     {
+        $data['perkuliahan'] = $this->input->post();
+
+        $layout['jsbottom'] = $this->load->view('absensi/jsbottom/kps_detail_perkuliahan', $data, true);
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'permohonan';
-        $layout['pages'] = $this->load->view('absensi/kps/detail_perkuliahan', '', true);
+        $layout['pages'] = $this->load->view('absensi/kps/detail_perkuliahan', $data, true);
         $this->load->view('absensi/master', array('main' => $layout));
     }
 
-    public function verifikasi_perkuliahan()
+    public function detail_kls_pengganti()
     {
+        $data['perkuliahan'] = $this->input->post();
+        
+        $layout['jsbottom'] = $this->load->view('absensi/jsbottom/kps_detail_kls_gnt', $data, true);
         $layout['title'] = 'Absensi';
         $layout['menuActive'] = 'permohonan';
-        $layout['pages'] = $this->load->view('absensi/kps/verifikasi_perkuliahan', '', true);
+        $layout['pages'] = $this->load->view('absensi/kps/detail_kls_pengganti', $data, true);
+        $this->load->view('absensi/master', array('main' => $layout));
+    }
+
+    public function list_verifikasi()
+    {
+        $url_perkuliahan = 'absensi/perkuliahan/' . $this->user['prodi_prodi_id'];
+        $data['resp_list_perkuliahan'] = $this->customguzzle->getBasicToken($url_perkuliahan, 'application/json');
+
+        $url_kelaspengganti = 'kelaspengganti/prodi/' . $this->user['prodi_prodi_id'];
+        $data['resp_list_kelas_pengganti'] = $this->customguzzle->getBasicToken($url_kelaspengganti, 'application/json');
+
+        $layout['title'] = 'Absensi';
+        $layout['menuActive'] = 'permohonan';
+        $layout['pages'] = $this->load->view('absensi/kps/list_verifikasi', $data, true);
         $this->load->view('absensi/master', array('main' => $layout));
     }
 
@@ -97,5 +119,39 @@ class Absensi_KPS extends CI_Controller
         $layout['menuActive'] = 'dashboard';
         $layout['pages'] = $this->load->view('absensi/dosen/kelas_pengganti', '', true);
         $this->load->view('absensi/master', array('main' => $layout));
+    }
+
+    // Not Pages
+
+    public function checkpin()
+    {
+        if ($this->user['pin'] == $this->input->post('pin')){
+            echo 'true';
+        } else {
+            echo 'false';
+        }
+    }
+
+    public function verif_perkuliahan()
+    {
+        $data = array(
+            'kd_absendsn' => $this->input->post('kd_absendsn'),
+            'tgl_verif_kps' => date('d-m-Y'),
+            'note_kps' => $this->input->post('note_kps')
+        );
+        $update = $this->customguzzle->putBlank('absensi/', 'application/json', $data);
+        header('Location: ' . site_url('absensi_kps/list_verifikasi'));
+        // echo json_encode($update);
+    }
+
+    public function verif_kelas_pengganti()
+    {
+        $data = array(
+            'kd_gantikls' => $this->input->post('kd_gantikls'),
+            'jml_jam' => $this->input->post('jml_jam')
+        );
+        $update = $this->customguzzle->putBlank('kelaspengganti/verif', 'application/json', $data);
+        header('Location: ' . site_url('absensi_kps/list_verifikasi'));
+        // echo json_encode($update);
     }
 }
