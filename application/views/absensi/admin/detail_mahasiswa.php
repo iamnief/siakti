@@ -31,47 +31,59 @@
       </ul>
       <div class="tab-content" id="custom-content-below-tabContent">
         <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
-          <form class="form-horizontal" action="/action_page.php">
+          <form class="form-horizontal" action="submit_mahasiswa" method="POST">
             <div class="form-group">
               <label>NIM</label>
-              <input type="text" class="form-control" id="nim" name="nim">
+              <input type="text" class="form-control" id="nim" name="nim" value="<?= $data['nim'] ?>">
             </div>
             <div class="form-group">
               <label>Nama</label>
-              <input type="text" class="form-control" id="nama" name="nama">
+              <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" value="<?= $data['nama_mhs'] ?>">
             </div>
             <div class="form-group">
               <label>Alamat</label>
-              <textarea class="form-control" rows="3" id="alamat" name="alamat"></textarea>
-            </div>
-            <div class="form-group">
-              <label>Kecamatan</label>
-              <input type="text" class="form-control" id="kecamatan" name="kecamatan">
+              <textarea class="form-control" rows="3" id="add_mhs" name="add_mhs"><?= $data['add_mhs'] ?></textarea>
             </div>
             <div class="form-group">
               <label>Kelurahan</label>
-              <input type="text" class="form-control" id="kelurahan" name="kelurahan">
+              <input type="text" class="form-control" id="add_kec_mhs" name="add_kec_mhs" value="<?= $data['add_kec_mhs'] ?>">
+            </div>
+            <div class="form-group">
+              <label>Kecamatan</label>
+              <input type="text" class="form-control" id="add_kel_mhs" name="add_kel_mhs" value="<?= $data['add_kel_mhs'] ?>">
             </div>
             <div class="form-group">
               <label>Kota</label>
-              <input type="text" class="form-control" id="kota" name="kota">
+              <input type="text" class="form-control" id="add_kota_mhs" name="add_kota_mhs" value="<?= $data['add_kota_mhs'] ?>">
             </div>
             <div class="form-group">
               <label>Nomor Telepon</label>
-              <input type="text" class="form-control" id="notlp" name="notlp">
+              <input type="text" class="form-control" id="tlp_mhs" name="tlp_mhs" value="<?= $data['tlp_mhs'] ?>">
             </div>
             <div class="form-group">
               <label>Alamat E-mail</label>
-              <input type="E-mail" class="form-control" id="email" name="email">
-            </div>
-            <div class="form-group">
-              <label>Username</label>
-              <input type="text" class="form-control" id="username" name="username">
+              <input type="E-mail" class="form-control" id="email_mhs" name="email_mhs" value="<?= $data['email_mhs'] ?>">
             </div>
             <div class="form-group">
               <label>Program Studi</label>
-              <input type="text" class="form-control" id="prodi" name="prodi">
+              <select class="custom-select custom-select-md form-control form-control-md" name="prodi_prodi_id" id="prodi_prodi_id">
+                <?php
+                  foreach($dataProdi as $rowProdi){
+                    if($data['prodi_prodi_id'] == $rowProdi['prodi_id']){
+                      echo "<option value=$rowProdi[prodi_id] selected>$rowProdi[namaprod]</option>";
+                    }
+                    else{
+                      echo "<option value=$rowProdi[prodi_id]>$rowProdi[namaprod]</option>";
+                    }
+                ?>
+                <?php
+                  }
+                ?>
+              </select>
             </div>
+
+            <input type="hidden" class="form-control" id="password" name="password" value="<?= $data['password'] ?>">
+            <input type="hidden" class="form-control" id="pin" name="pin" value="<?= $data['pin'] ?>">
 
             <div class="col-sm-offset-2 col-sm-10">
               <button type="submit" class="btn btn-default">Save</button>

@@ -53,24 +53,30 @@
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>NIK</th>
+                  <th>NIP</th>
                   <th>Nama</th>
-                  <th>Mata Kuliah</th>
-                  <th>Status</th>
+                  <th>Username</th>
+                  <th>Alamat</th>
                   <th>Action</th>
               </thead>
               <tbody>
+                <?php
+                  foreach((array)$data as $row){
+                ?>
                 <tr>
-                  <td>Misc</td>
-                  <td>Lynx</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td><a class="btn btn-primary btn-sm" href="<?php echo site_url('absensi_admin/detail_dosen'); ?>">
+                  <td><?=$row['nip']?></td>
+                  <td><?=$row['nama']?></td>
+                  <td><?=$row['usr_name']?></td>
+                  <td><?=$row['alamat']?></td>
+                  <td><a class="btn btn-primary btn-sm" href="<?php $url = 'absensi_admin/detail_dosen?nip='.$row['nip']; echo site_url($url); ?>">
                       <i class="fas fa-folder">
                       </i>
-                      View
+                      Edit
                     </a></td>
                 </tr>
+                <?php
+                  }
+                ?>
               </tbody>
             </table>
           </div>

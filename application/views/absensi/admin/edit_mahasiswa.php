@@ -53,24 +53,31 @@
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>NIK</th>
+                  <th>NIM</th>
                   <th>Nama</th>
-                  <th>Mata Kuliah</th>
-                  <th>Status</th>
+                  <th>Username</th>
+                  <th>Email</th>
                   <th>Action</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>Misc</td>
-                  <td>Lynx</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td><a class="btn btn-primary btn-sm" href="<?php echo site_url('absensi_admin/detail_mahasiswa'); ?>">
-                      <i class="fas fa-folder">
-                      </i>
-                      View
-                    </a></td>
-                </tr>
+                <?php
+                foreach ((array) $data as $row) {
+                  ?>
+                  <tr>
+                    <td><?= $row['nim'] ?></td>
+                    <td><?= $row['nama_mhs'] ?></td>
+                    <td><?= $row['usr_name'] ?></td>
+                    <td><?= $row['email_mhs'] ?></td>
+                    <td><a class="btn btn-primary btn-sm" href="<?php $url = 'absensi_admin/detail_mahasiswa?nim=' . $row['nim'];
+                                                                  echo site_url($url); ?>">
+                        <i class="fas fa-folder">
+                        </i>
+                        Edit
+                      </a></td>
+                  </tr>
+                <?php
+                }
+                ?>
               </tbody>
             </table>
           </div>

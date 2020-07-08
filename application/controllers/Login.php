@@ -26,7 +26,6 @@ class Login extends CI_Controller
 	{
 		$post = $this->input->post();
 		$response = $this->customguzzle->postBlank('login','application/json', $post);
-
 		if(isset($response['error']) && !$response['error']){
 
 			$userdata = json_decode($response['data']);
