@@ -80,19 +80,20 @@ $now = date('d-m-Y H:i:s');
                             ?>
                               <!-- Memulai Kelas -->
                               <form action="<?php echo site_url('absensi_dosen/mulai_kelas'); ?>" method="post">
-                                <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" style="display: none;">
-                                <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" style="display: none;">
-                                <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" style="display: none;">
+                                <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" hidden>
+                                <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" hidden>
+                                <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" hidden>
+                                <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" hidden>
                                 <button type="submit" class="btn btn-yellow btn-sm">Mulai Kelas</button>
                               </form>
                             <?php
                             }
                             ?>
                             <form action="<?php echo site_url('absensi_dosen/batal_kelas'); ?>" method="post">
-                              <input type="text" name="tgl" value="<?php echo $tgl; ?>" style="display: none;">
-                              <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" style="display: none;">
-                              <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" style="display: none;">
-                              <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" style="display: none;">
+                              <input type="text" name="tgl" value="<?php echo $tgl; ?>" hidden>
+                              <input type="text" name="kodejdwl" value="<?php echo $kode; ?>" hidden>
+                              <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" hidden>
+                              <input type="text" name="tipe_kelas" value="<?php echo $tipe_kelas; ?>" hidden>
                               <button type="submit" class="btn btn-danger btn-sm">Batal Kelas</button>
                             </form>
                           </div>
@@ -105,15 +106,15 @@ $now = date('d-m-Y H:i:s');
                             if ($value->abs_jam_keluar == null && $value->abs_jam_msk != null) {
                             ?>
                               <p>Kelas sedang berlangsung</p>
-                              <input type="text" name="status" value="berlangsung" style="display: none;">
+                              <input type="text" name="status" value="berlangsung" hidden>
                             <?php } else { ?>
                               <p>Kelas sudah berakhir</p>
-                              <input type="text" name="status" value="berakhir" style="display: none;">
+                              <input type="text" name="status" value="berakhir" hidden>
                             <?php } ?>
-                            <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" style="display: none;">
-                            <input type="text" name="waktu" value="<?php echo $value->jam_mulai . ' - ' . $value->jam_selesai; ?>" style="display: none;">
-                            <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" style="display: none;">
-                            <input type="text" name="kd_absendsn" value="<?php echo $value->kd_absendsn; ?>" style="display: none;">
+                            <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" hidden>
+                            <input type="text" name="waktu" value="<?php echo $value->jam_mulai . ' - ' . $value->jam_selesai; ?>" hidden>
+                            <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" hidden>
+                            <input type="text" name="kd_absendsn" value="<?php echo $value->kd_absendsn; ?>" hidden>
                             <button type="submit" class="btn btn-yellow btn-sm">Detail Kehadiran</button>
                           </form>
                         <?php
@@ -153,12 +154,12 @@ $now = date('d-m-Y H:i:s');
                         <div class="status col-4"><p><?php echo 'Sedang Diproses' ?></p></div>
                           <?php } else {?>
                         <form class="status col-4" action="<?php echo site_url(); ?>absensi_dosen/kelas_pengganti" method="post">
-                          <input type="text" name="kd_gantikls" value="<?php echo $value->kd_gantikls; ?>" style="display: none;">
-                          <input type="text" name="tgl_batal" value="<?php echo $value->tgl_batal; ?>" style="display: none;">
-                          <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" style="display: none;">
-                          <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" style="display: none;">
-                          <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" style="display: none;">
-                          <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" style="display: none;">
+                          <input type="text" name="kd_gantikls" value="<?php echo $value->kd_gantikls; ?>" hidden>
+                          <input type="text" name="tgl_batal" value="<?php echo $value->tgl_batal; ?>" hidden>
+                          <input type="text" name="jml_jam" value="<?php echo $value->jml_jam; ?>" hidden>
+                          <input type="text" name="namamk" value="<?php echo $value->namamk; ?>" hidden>
+                          <input type="text" name="namaklas" value="<?php echo $value->namaklas; ?>" hidden>
+                          <input type="text" name="kodeklas" value="<?php echo $value->kodeklas; ?>" hidden>
                           <button type="submit" class="btn btn-yellow btn-sm">Buat Pengganti</button>
                         </form>
                         <?php }?>

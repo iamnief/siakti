@@ -149,6 +149,7 @@ class Absensi_Dosen extends CI_Controller
 		$data_absen_mhs['tgl'] = date('d-m-Y');
 		$data_absen_mhs['kode'] = $kodejdwl;
 		$data_absen_mhs['tipe_kelas'] = $tipe_kelas;
+		$data_absen_mhs['jml_jam'] = $this->input->post('jml_jam');
 
 		$resp2 = $this->customguzzle->postBlank($url_absen_mhs, 'application/json', $data_absen_mhs);
 		echo json_encode($resp2);
